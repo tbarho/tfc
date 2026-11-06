@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta property="og:title" content="Design System Fundamentals, filled"><meta property="og:description" content="Fundamentals v4 &amp;middot; brand-neutral Every leaf of the approved outline, filled from three peers. Skin (OvenLovin) plugs in later. Version 4 &amp;middot; Nov 5, 2026 &amp;middot; 38 sections &amp;middot; 631 le"><meta property="og:image" content="https://dropfast.dev/api/og/sw5mnpgq?v=1793928769164"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://dropfast.dev/s/sw5mnpgq/"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Design System Fundamentals v4: filled from Geist, Cursor, Grok Bot, imagery craft added</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -75,6 +75,24 @@ td.s{width:16%}
 @media (max-width:640px){.grid2{grid-template-columns:1fr}}
 .toc{columns:2;font-size:0.875rem}
 .toc li+li{margin-top:0.25rem}
+
+/* page extras v5: formatting only. Wider guide column for tables, prose kept at a reading measure. */
+main{max-width:72rem}
+p,ul,ol,.meta{max-width:44rem}
+.callout{max-width:48rem}
+.callout p,.card p,td p,td ul,td ol,th p{max-width:none}
+th,td{padding:0.7rem 0.875rem;overflow-wrap:anywhere}
+th{font-weight:600;color:var(--fg);background:var(--card);border-top:0;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:1px solid var(--hair)}
+td ul,td ol{margin-top:0.5rem}
+td.s .tag{white-space:normal;overflow-wrap:normal}
+.wide{overflow-x:auto;overscroll-behavior-x:contain;margin-top:1.5rem}
+.wide>table{margin-top:0;min-width:36rem}
+.wide>table:has(th:nth-child(6)){min-width:52rem}
+@media (max-width:640px){
+  th,td{padding:0.6rem 0.625rem}
+  .wide{margin-left:-1.25rem;margin-right:-1.25rem;padding:0 1.25rem}
+}
 </style></head><body><main>
 <span class="step-label">Fundamentals v4 &middot; brand-neutral</span>
 <h1>Design System Fundamentals, filled</h1>
@@ -1125,4 +1143,4 @@ td.s{width:16%}
 <tr><td class="k">Imagery checks defined and brand slots filled</td><td>checks defined PASS (12.10); brand slots OPEN until a product A fills 12.13 and runs 12.10 on a real set.</td><td class="s tag">This doc</td></tr>
 </table></div>
 <hr><p class="small">Source: template/FILLED.md, template/tokens.json, refs/geist, refs/cursor, refs/grok-bot. Imagery brand slots stay OPEN until a product A fill. Gaps needing Ty: RACI, feedback channel, HC theme, versioning cadence, skin pass, per-section sign-off.</p>
-</main><script src="/embed/comments-spike.js" data-dropfast-slug="sw5mnpgq" defer></script><script src="/embed/beacon.js" data-dropfast-slug="sw5mnpgq" defer></script></body></html>
+</main></body></html>
