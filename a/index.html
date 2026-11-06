@@ -1,0 +1,1128 @@
+<!doctype html><html lang="en"><head><meta property="og:title" content="Design System Fundamentals, filled"><meta property="og:description" content="Fundamentals v4 &amp;middot; brand-neutral Every leaf of the approved outline, filled from three peers. Skin (OvenLovin) plugs in later. Version 4 &amp;middot; Nov 5, 2026 &amp;middot; 38 sections &amp;middot; 631 le"><meta property="og:image" content="https://dropfast.dev/api/og/sw5mnpgq?v=1793928769164"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://dropfast.dev/s/sw5mnpgq/"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Design System Fundamentals v4: filled from Geist, Cursor, Grok Bot, imagery craft added</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* DropFast canonical style = x.ai Grok Bot guides look (light). Ref: https://x.ai/bot/guides/grok-bot-for-engineering
+   Fonts <head>: <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+   Inter is the stand-in for x.ai's proprietary xVf. Literata/Gaegu warm-paper stack is retired. */
+:root{
+  --bg:#ffffff;
+  --fg:#0a0a0a;
+  --muted:#7c8088;          /* hsl(216 4% 51%) */
+  --card:#f8f6f2;           /* hsl(40 18% 97%) */
+  --border:#d5d9e3;         /* hsl(222 19% 86%) */
+  --hair:rgba(10,10,10,0.08);
+  --ring:rgba(10,10,10,0.08);
+  --code-bg:rgba(10,10,10,0.03);
+  --link-line:rgba(10,10,10,0.2);
+  --link-line-hover:rgba(10,10,10,0.5);
+  --sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.75 var(--sans);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-wrap:pretty;font-feature-settings:"cv11","ss01"}
+main{max-width:48rem;margin:0 auto;padding:6rem 1.5rem 8rem}
+h1,h2,h3{font-family:var(--sans);font-weight:500;color:var(--fg);letter-spacing:-0.025em;margin:0;text-wrap:balance}
+h1{font-size:3rem;line-height:1.1}
+h2{font-size:1.5rem;line-height:1.33;margin-top:3rem}
+h3{font-size:1.25rem;line-height:1.4;margin-top:2.5rem;letter-spacing:-0.015em}
+p{margin:1.25rem 0 0}
+ul,ol{margin:1.25rem 0 0;padding-left:1.5rem}
+li{margin:0;padding:0 0 0 0.25rem}
+li+li{margin-top:0.5rem}
+li::marker{color:var(--muted)}
+strong{color:var(--fg);font-weight:600}
+a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--link-line);padding-bottom:1px;transition:border-color .15s ease}
+a:hover{border-bottom-color:var(--link-line-hover)}
+code,pre{font-family:var(--mono)}
+code{font-size:0.9em;background:var(--code-bg);padding:0.15em 0.4em;border-radius:4px;box-shadow:0 0 0 1px var(--ring)}
+pre{font-size:0.875rem;line-height:1.7;background:var(--card);border:1px solid var(--hair);border-radius:var(--radius);padding:1.25rem 1.5rem;overflow-x:auto;margin:1.5rem 0 0;white-space:pre-wrap;color:var(--fg)}
+pre code{background:none;box-shadow:none;padding:0;font-size:inherit;border-radius:0}
+img,svg,video{max-width:100%}
+img{border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:0.9375rem;line-height:1.6}
+th,td{text-align:left;vertical-align:top;padding:0.65rem 0.75rem 0.65rem 0;border-top:1px solid var(--hair)}
+th{font-weight:500;color:var(--muted)}
+.meta{font-size:0.875rem;line-height:1.6;color:var(--muted);margin-top:1.25rem}
+.lead{font-size:1.125rem;line-height:1.75;color:var(--muted);margin-top:1.5rem;max-width:36rem}
+.small{font-size:0.875rem;color:var(--muted)}
+.callout{background:var(--card);border:1px solid var(--hair);border-radius:var(--radius);padding:1.25rem 1.5rem;margin:2rem 0 0}
+.callout p:first-child{margin-top:0}
+.card{background:var(--card);border:1px solid var(--hair);border-radius:var(--radius);padding:1.5rem}
+.step-label{display:block;font:500 0.75rem/1.5 var(--sans);color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.35rem}
+.checklist{list-style:none;padding-left:0;margin-top:1.5rem}
+.checklist li{padding:1rem 0;border-top:1px solid var(--hair);margin-top:0}
+.checklist li:last-child{border-bottom:1px solid var(--hair)}
+.checklist li strong{display:block;margin-bottom:0.2rem}
+hr{border:0;border-top:1px solid var(--hair);margin:3.5rem 0 0}
+h2.first{margin-top:3rem}
+@media (max-width:640px){
+  main{padding:4rem 1.25rem 6rem}
+  h1{font-size:2.25rem}
+}
+
+/* page extras */
+.wide{overflow-x:auto}
+.sw{display:inline-block;width:1.25rem;height:1.25rem;border-radius:4px;box-shadow:0 0 0 1px var(--ring);vertical-align:middle}
+.tag{font:500 0.75rem/1.5 var(--mono);color:var(--muted);white-space:nowrap}
+.tbd{color:#7c8088;font-style:italic}
+td.k{font-weight:500;width:28%}
+td.s{width:16%}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+@media (max-width:640px){.grid2{grid-template-columns:1fr}}
+.toc{columns:2;font-size:0.875rem}
+.toc li+li{margin-top:0.25rem}
+</style></head><body><main>
+<span class="step-label">Fundamentals v4 &middot; brand-neutral</span>
+<h1>Design System Fundamentals, filled</h1>
+<p class="lead">Every leaf of the approved outline, filled from three peers. Skin (OvenLovin) plugs in later.</p>
+<p class="meta">Version 4 &middot; Nov 5, 2026 &middot; 38 sections &middot; 631 leaves &middot; tokens: <code>template/tokens.json</code></p>
+<div class="callout"><p><strong>Key rule:</strong> copy Geist's contracts, run them at Cursor's density, present them with Grok Bot's calm.</p></div>
+<h2>Peers</h2><table><tr><th>Peer</th><th>Owns</th><th>Source</th></tr>
+<tr><td>Vercel Geist</td><td>Primary: tokens, color law, type scale, components</td><td><a href="https://vercel.com/geist/introduction">vercel.com/geist</a></td></tr>
+<tr><td>Cursor</td><td>Dissent: compact density, IDE chrome, keyboard</td><td><a href="https://cursor.com/docs">cursor.com/docs</a></td></tr>
+<tr><td>Grok Bot</td><td>Doc and guide surfaces, comfortable density</td><td><a href="https://x.ai/bot/guides/grok-bot-for-engineering">x.ai/bot/guides</a></td></tr></table>
+<p class="small">Tags: (Geist) (Cursor) (Grok Bot) = copied. (Std) = WCAG or platform. <em>N/A, skin</em> = brand decides. <em>TBD, need peer</em> = peers silent, not invented. Imagery (§12): (Math) = geometry or photometry true for any brand; (Craft, peers silent; Ty pick) = photographic default tagged like φ values.</p>
+<h2>Completeness self-check</h2><table><tr><th>Measure</th><th>Result</th></tr>
+<tr><td>Outline leaves filled</td><td>631 of 631</td></tr>
+<tr><td>Peer-sourced value</td><td>335</td></tr><tr><td>Carries a TBD flag</td><td>78</td></tr><tr><td>N/A, skin</td><td>14</td></tr>
+<tr><td>Proportion layer (φ) leaves</td><td>51 of 51</td></tr><tr><td>Imagery leaves (§12.0 to 12.13)</td><td>201 rows; brand slots N/A, skin until a product A fill</td></tr>
+<tr><td>Brand values in this pass</td><td>0 (no orange, cream, Fascinate)</td></tr><tr><td>Em dashes</td><td>0</td></tr></table>
+<h2>Color: the 10-step law</h2><p class="small">Geist. Every scale uses the same step jobs. Light / dark values.</p><div class="wide"><table><tr><th>Step</th><th>Job</th><th>Gray light</th><th>Gray dark</th><th>Blue</th><th>Red</th><th>Amber</th><th>Green</th></tr>
+<tr><td><code>100</code></td><td>default background</td><td><span class="sw" style="background:#f2f2f2"></span> <span class="tag">#f2f2f2</span></td><td><span class="sw" style="background:#1a1a1a"></span> <span class="tag">#1a1a1a</span></td><td><span class="sw" style="background:#f0f7ff" title="#f0f7ff"></span></td><td><span class="sw" style="background:#ffeef0" title="#ffeef0"></span></td><td><span class="sw" style="background:#fff6e1" title="#fff6e1"></span></td><td><span class="sw" style="background:#ecfdec" title="#ecfdec"></span></td></tr>
+<tr><td><code>200</code></td><td>hover background</td><td><span class="sw" style="background:#ebebeb"></span> <span class="tag">#ebebeb</span></td><td><span class="sw" style="background:#1f1f1f"></span> <span class="tag">#1f1f1f</span></td><td><span class="sw" style="background:#eaf4ff" title="#eaf4ff"></span></td><td><span class="sw" style="background:#ffe9ea" title="#ffe9ea"></span></td><td><span class="sw" style="background:#fff4d4" title="#fff4d4"></span></td><td><span class="sw" style="background:#e5fce7" title="#e5fce7"></span></td></tr>
+<tr><td><code>300</code></td><td>active background</td><td><span class="sw" style="background:#e6e6e6"></span> <span class="tag">#e6e6e6</span></td><td><span class="sw" style="background:#292929"></span> <span class="tag">#292929</span></td><td><span class="sw" style="background:#e0efff" title="#e0efff"></span></td><td><span class="sw" style="background:#ffe4e5" title="#ffe4e5"></span></td><td><span class="sw" style="background:#fff1c8" title="#fff1c8"></span></td><td><span class="sw" style="background:#d3fad1" title="#d3fad1"></span></td></tr>
+<tr><td><code>400</code></td><td>default border</td><td><span class="sw" style="background:#ebebeb"></span> <span class="tag">#ebebeb</span></td><td><span class="sw" style="background:#2e2e2e"></span> <span class="tag">#2e2e2e</span></td><td><span class="sw" style="background:#cce7ff" title="#cce7ff"></span></td><td><span class="sw" style="background:#ffd8d7" title="#ffd8d7"></span></td><td><span class="sw" style="background:#ffdd84" title="#ffdd84"></span></td><td><span class="sw" style="background:#b9f5bc" title="#b9f5bc"></span></td></tr>
+<tr><td><code>500</code></td><td>hover border</td><td><span class="sw" style="background:#c9c9c9"></span> <span class="tag">#c9c9c9</span></td><td><span class="sw" style="background:#454545"></span> <span class="tag">#454545</span></td><td><span class="sw" style="background:#97ccff" title="#97ccff"></span></td><td><span class="sw" style="background:#ffb5b6" title="#ffb5b6"></span></td><td><span class="sw" style="background:#ffc85e" title="#ffc85e"></span></td><td><span class="sw" style="background:#82eb8d" title="#82eb8d"></span></td></tr>
+<tr><td><code>600</code></td><td>active border</td><td><span class="sw" style="background:#a8a8a8"></span> <span class="tag">#a8a8a8</span></td><td><span class="sw" style="background:#878787"></span> <span class="tag">#878787</span></td><td><span class="sw" style="background:#51aeff" title="#51aeff"></span></td><td><span class="sw" style="background:#ff6a6e" title="#ff6a6e"></span></td><td><span class="sw" style="background:#ffaa00" title="#ffaa00"></span></td><td><span class="sw" style="background:#4ce15e" title="#4ce15e"></span></td></tr>
+<tr><td><code>700</code></td><td>high contrast background</td><td><span class="sw" style="background:#8f8f8f"></span> <span class="tag">#8f8f8f</span></td><td><span class="sw" style="background:#8f8f8f"></span> <span class="tag">#8f8f8f</span></td><td><span class="sw" style="background:#0070f7" title="#0070f7"></span></td><td><span class="sw" style="background:#fc0035" title="#fc0035"></span></td><td><span class="sw" style="background:#ffb200" title="#ffb200"></span></td><td><span class="sw" style="background:#28a948" title="#28a948"></span></td></tr>
+<tr><td><code>800</code></td><td>hover high contrast background</td><td><span class="sw" style="background:#7d7d7d"></span> <span class="tag">#7d7d7d</span></td><td><span class="sw" style="background:#7d7d7d"></span> <span class="tag">#7d7d7d</span></td><td><span class="sw" style="background:#005edc" title="#005edc"></span></td><td><span class="sw" style="background:#e70022" title="#e70022"></span></td><td><span class="sw" style="background:#ff9900" title="#ff9900"></span></td><td><span class="sw" style="background:#279141" title="#279141"></span></td></tr>
+<tr><td><code>900</code></td><td>secondary text and icons</td><td><span class="sw" style="background:#4c4c4c"></span> <span class="tag">#4c4c4c</span></td><td><span class="sw" style="background:#a1a1a1"></span> <span class="tag">#a1a1a1</span></td><td><span class="sw" style="background:#0064e2" title="#0064e2"></span></td><td><span class="sw" style="background:#d60020" title="#d60020"></span></td><td><span class="sw" style="background:#a64f00" title="#a64f00"></span></td><td><span class="sw" style="background:#107d32" title="#107d32"></span></td></tr>
+<tr><td><code>1000</code></td><td>primary text and icons</td><td><span class="sw" style="background:#171717"></span> <span class="tag">#171717</span></td><td><span class="sw" style="background:#ededed"></span> <span class="tag">#ededed</span></td><td><span class="sw" style="background:#002453" title="#002453"></span></td><td><span class="sw" style="background:#46000c" title="#46000c"></span></td><td><span class="sw" style="background:#541c00" title="#541c00"></span></td><td><span class="sw" style="background:#00370d" title="#00370d"></span></td></tr>
+</table></div>
+<h3>Semantic roles</h3><table><tr><th>Role</th><th>Maps to</th></tr>
+<tr><td><code>color.surface.base</code></td><td><code>{primitive.color.background.100}</code></td></tr>
+<tr><td><code>color.surface.sunken</code></td><td><code>{primitive.color.background.200}</code></td></tr>
+<tr><td><code>color.surface.raised</code></td><td><code>{primitive.color.background.100}</code></td></tr>
+<tr><td><code>color.surface.inverse</code></td><td><code>{primitive.color.gray.1000}</code></td></tr>
+<tr><td><code>color.surface.component</code></td><td><code>{primitive.color.gray.100}</code></td></tr>
+<tr><td><code>color.surface.component-hover</code></td><td><code>{primitive.color.gray.200}</code></td></tr>
+<tr><td><code>color.surface.component-active</code></td><td><code>{primitive.color.gray.300}</code></td></tr>
+<tr><td><code>color.text.primary</code></td><td><code>{primitive.color.gray.1000}</code></td></tr>
+<tr><td><code>color.text.secondary</code></td><td><code>{primitive.color.gray.900}</code></td></tr>
+<tr><td><code>color.text.tertiary</code></td><td><code>{primitive.color.gray.700}</code></td></tr>
+<tr><td><code>color.text.disabled</code></td><td><code>{primitive.color.gray.700}</code></td></tr>
+<tr><td><code>color.text.inverse</code></td><td><code>{primitive.color.background.100}</code></td></tr>
+<tr><td><code>color.text.on-accent</code></td><td><code>#ffffff</code></td></tr>
+<tr><td><code>color.border.default</code></td><td><code>{primitive.color.gray.400}</code></td></tr>
+<tr><td><code>color.border.hover</code></td><td><code>{primitive.color.gray.500}</code></td></tr>
+<tr><td><code>color.border.active</code></td><td><code>{primitive.color.gray.600}</code></td></tr>
+<tr><td><code>color.border.subtle</code></td><td><code>{primitive.color.gray-alpha.400}</code></td></tr>
+<tr><td><code>color.border.error</code></td><td><code>{primitive.color.red.900}</code></td></tr>
+<tr><td><code>color.interactive.primary-bg</code></td><td><code>{primitive.color.gray.1000}</code></td></tr>
+<tr><td><code>color.interactive.primary-fg</code></td><td><code>{primitive.color.background.100}</code></td></tr>
+<tr><td><code>color.interactive.secondary-bg</code></td><td><code>{primitive.color.background.100}</code></td></tr>
+<tr><td><code>color.interactive.secondary-border</code></td><td><code>{primitive.color.gray-alpha.400}</code></td></tr>
+<tr><td><code>color.interactive.link</code></td><td><code>{primitive.color.gray.1000}</code></td></tr>
+<tr><td><code>color.interactive.accent-slot</code></td><td><code>{primitive.color.blue.700}</code></td></tr>
+<tr><td><code>color.status.success</code></td><td><code>fg {primitive.color.green.900} / bg {primitive.color.green.100} / border {primitive.color.green.400}</code></td></tr>
+<tr><td><code>color.status.warning</code></td><td><code>fg {primitive.color.amber.900} / bg {primitive.color.amber.100} / border {primitive.color.amber.400}</code></td></tr>
+<tr><td><code>color.status.danger</code></td><td><code>fg {primitive.color.red.900} / bg {primitive.color.red.100} / border {primitive.color.red.400}</code></td></tr>
+<tr><td><code>color.status.info</code></td><td><code>fg {primitive.color.blue.900} / bg {primitive.color.blue.100} / border {primitive.color.blue.400}</code></td></tr>
+</table>
+<h2>Type</h2><p class="small">Geist scale. Sans slot = Geist Sans (Inter on this page). Headings 600, buttons 500, copy 400.</p><div class="wide"><table><tr><th>Token</th><th>Size / line</th><th>Weight</th><th>Tracking</th></tr>
+<tr><td><code>heading-72</code></td><td>72px / 72px</td><td>600</td><td>-4.32px</td></tr>
+<tr><td><code>heading-64</code></td><td>64px / 64px</td><td>600</td><td>-3.84px</td></tr>
+<tr><td><code>heading-56</code></td><td>56px / 56px</td><td>600</td><td>-3.36px</td></tr>
+<tr><td><code>heading-48</code></td><td>48px / 56px</td><td>600</td><td>-2.88px</td></tr>
+<tr><td><code>heading-40</code></td><td>40px / 48px</td><td>600</td><td>-2.4px</td></tr>
+<tr><td><code>heading-32</code></td><td>32px / 40px</td><td>600</td><td>-1.28px</td></tr>
+<tr><td><code>heading-24</code></td><td>24px / 32px</td><td>600</td><td>-0.96px</td></tr>
+<tr><td><code>heading-20</code></td><td>20px / 26px</td><td>600</td><td>-0.4px</td></tr>
+<tr><td><code>heading-16</code></td><td>16px / 24px</td><td>600</td><td>-0.32px</td></tr>
+<tr><td><code>heading-14</code></td><td>14px / 20px</td><td>600</td><td>-0.28px</td></tr>
+<tr><td><code>button-16</code></td><td>16px / 20px</td><td>500</td><td>0px</td></tr>
+<tr><td><code>button-14</code></td><td>14px / 20px</td><td>500</td><td>0px</td></tr>
+<tr><td><code>button-12</code></td><td>12px / 16px</td><td>500</td><td>0px</td></tr>
+<tr><td><code>label-20</code></td><td>20px / 32px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>label-18</code></td><td>18px / 20px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>label-16</code></td><td>16px / 20px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>label-14</code></td><td>14px / 20px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>label-13</code></td><td>13px / 16px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>label-12</code></td><td>12px / 16px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>label-14-mono</code></td><td>14px / 20px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>label-13-mono</code></td><td>13px / 20px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>label-12-mono</code></td><td>12px / 16px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>copy-24</code></td><td>24px / 36px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>copy-20</code></td><td>20px / 36px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>copy-18</code></td><td>18px / 28px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>copy-16</code></td><td>16px / 24px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>copy-14</code></td><td>14px / 20px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>copy-13</code></td><td>13px / 18px</td><td>400</td><td>0px</td></tr>
+<tr><td><code>copy-13-mono</code></td><td>13px / 18px</td><td>400</td><td>0px</td></tr>
+</table></div>
+<h3>Density profiles</h3><table><tr><th>Profile</th><th>Values</th><th>Peer</th></tr>
+<tr><td>compact</td><td>product-sm 11px, product-base 12px, product-lg 13px</td><td class="tag">Cursor</td></tr>
+<tr><td>default</td><td>body copy-14</td><td class="tag">Geist</td></tr>
+<tr><td>comfortable</td><td>body 16px/1.75, h1 48px/1.1 500 -0.025em, h2 24px/1.33, h3 20px/1.4, lead 18px/1.75, measure 48rem</td><td class="tag">Grok Bot</td></tr>
+</table>
+<h2>Space and size</h2>
+<p class="small">Geist 4px base. Cursor dissent: 10px g grid in compact chrome.</p>
+<table><tr><th>Token</th><th>Value</th><th>Peer</th></tr>
+<tr><td><code>base</code></td><td>4px</td><td class="tag">Geist</td></tr>
+<tr><td><code>1x</code></td><td>4px</td><td class="tag">Geist</td></tr>
+<tr><td><code>2x</code></td><td>8px</td><td class="tag">Geist</td></tr>
+<tr><td><code>3x</code></td><td>12px</td><td class="tag">Geist</td></tr>
+<tr><td><code>4x</code></td><td>16px</td><td class="tag">Geist</td></tr>
+<tr><td><code>6x</code></td><td>24px</td><td class="tag">Geist</td></tr>
+<tr><td><code>8x</code></td><td>32px</td><td class="tag">Geist</td></tr>
+<tr><td><code>10x</code></td><td>40px</td><td class="tag">Geist</td></tr>
+<tr><td><code>16x</code></td><td>64px</td><td class="tag">Geist</td></tr>
+<tr><td><code>24x</code></td><td>96px</td><td class="tag">Geist</td></tr>
+<tr><td><code>32x</code></td><td>128px</td><td class="tag">Geist</td></tr>
+<tr><td><code>48x</code></td><td>192px</td><td class="tag">Geist</td></tr>
+<tr><td><code>64x</code></td><td>256px</td><td class="tag">Geist</td></tr>
+<tr><td><code>gap</code></td><td>24px</td><td class="tag">Geist</td></tr>
+<tr><td><code>gap-half</code></td><td>12px</td><td class="tag">Geist</td></tr>
+<tr><td><code>gap-quarter</code></td><td>8px</td><td class="tag">Geist</td></tr>
+<tr><td><code>page-margin</code></td><td>24px</td><td class="tag">Geist</td></tr>
+<tr><td><code>cursor-g</code></td><td>10px</td><td class="tag">Cursor (compact density grid)</td></tr>
+<tr><td><code>control-tiny</code></td><td>24px</td><td class="tag">Geist (button-12 in input)</td></tr>
+<tr><td><code>control-small</code></td><td>32px</td><td class="tag">Geist</td></tr>
+<tr><td><code>control-medium</code></td><td>36px</td><td class="tag">Geist</td></tr>
+<tr><td><code>control-large</code></td><td>40px</td><td class="tag">Geist</td></tr>
+<tr><td><code>icon</code></td><td>16px</td><td class="tag">Geist</td></tr>
+<tr><td><code>avatar</code></td><td>[14, 16, 24, 32, 48, 90]</td><td class="tag">Geist</td></tr>
+<tr><td><code>page-width</code></td><td>1400px</td><td class="tag">Geist</td></tr>
+<tr><td><code>docs-measure</code></td><td>48rem</td><td class="tag">Grok Bot</td></tr>
+</table>
+<h2>Radius</h2>
+<p class="small">Geist materials 6 / 12 / 16. Grok Bot dissent: 16px on doc cards.</p>
+<table><tr><th>Token</th><th>Value</th><th>Peer</th></tr>
+<tr><td><code>none</code></td><td>0</td><td class="tag"></td></tr>
+<tr><td><code>xs</code></td><td>4px</td><td class="tag">Grok Bot code / Cursor xs</td></tr>
+<tr><td><code>base</code></td><td>6px</td><td class="tag">Geist material-base/small/tooltip</td></tr>
+<tr><td><code>medium</code></td><td>12px</td><td class="tag">Geist material-medium/large/menu/modal</td></tr>
+<tr><td><code>fullscreen</code></td><td>16px</td><td class="tag">Geist material-fullscreen; Grok Bot doc cards</td></tr>
+<tr><td><code>full</code></td><td>9999px</td><td class="tag"></td></tr>
+<tr><td><code>popover-row</code></td><td>6px</td><td class="tag">Geist</td></tr>
+</table>
+<h2>Elevation</h2><p class="small">Geist materials pair a radius with a shadow.</p><table><tr><th>Material</th><th>Radius</th><th>Shadow token</th></tr>
+<tr><td><code>base</code></td><td>6px</td><td><code>shadow.border</code></td></tr>
+<tr><td><code>small</code></td><td>6px</td><td><code>shadow.border-small</code></td></tr>
+<tr><td><code>medium</code></td><td>12px</td><td><code>shadow.border-medium</code></td></tr>
+<tr><td><code>large</code></td><td>12px</td><td><code>shadow.border-large</code></td></tr>
+<tr><td><code>tooltip</code></td><td>6px</td><td><code>shadow.tooltip</code></td></tr>
+<tr><td><code>menu</code></td><td>12px</td><td><code>shadow.menu</code></td></tr>
+<tr><td><code>modal</code></td><td>12px</td><td><code>shadow.modal</code></td></tr>
+<tr><td><code>fullscreen</code></td><td>16px</td><td><code>shadow.fullscreen</code></td></tr>
+</table>
+<h2>Shadows</h2>
+<table><tr><th>Token</th><th>Value</th><th>Peer</th></tr>
+<tr><td><code>small</code></td><td>light: 0px 2px 2px #0000000a<br>dark: 0px 1px 2px #00000029</td><td class="tag">Geist</td></tr>
+<tr><td><code>medium</code></td><td>light: 0px 2px 2px #0000000a, 0px 8px 8px -8px #0000000a<br>dark: 0px 2px 2px #00000052, 0px 8px 8px -8px #00000029</td><td class="tag">Geist</td></tr>
+<tr><td><code>large</code></td><td>light: 0px 2px 2px #0000000a, 0px 8px 16px -4px #0000000a<br>dark: 0px 2px 2px #0000000a, 0px 8px 16px -4px #0000000a</td><td class="tag">Geist</td></tr>
+<tr><td><code>tooltip</code></td><td>light: var(--ds-shadow-border-base), 0px 1px 1px #00000005, 0px 4px 8px #0000000a, var(--ds-shadow-background-border)<br>dark: var(--ds-shadow-border-base), 0px 1px 1px #00000005, 0px 4px 8px #0000000a, var(--ds-shadow-background-border)</td><td class="tag">Geist</td></tr>
+<tr><td><code>menu</code></td><td>light: var(--ds-shadow-border-base), 0px 1px 1px #00000005, 0px 4px 8px -4px #0000000a, 0px 16px 24px -8px #0000000f, var(--ds-shadow-background-border)<br>dark: var(--ds-shadow-border-base), 0px 1px 1px #00000005, 0px 4px 8px -4px #0000000a, 0px 16px 24px -8px #0000000f, var(--ds-shadow-background-border)</td><td class="tag">Geist</td></tr>
+<tr><td><code>modal</code></td><td>light: var(--ds-shadow-border-base), 0px 1px 1px #00000005, 0px 8px 16px -4px #0000000a, 0px 24px 32px -8px #0000000f, var(--ds-shadow-background-border)<br>dark: var(--ds-shadow-border-base), 0px 1px 1px #00000005, 0px 8px 16px -4px #0000000a, 0px 24px 32px -8px #0000000f, var(--ds-shadow-background-border)</td><td class="tag">Geist</td></tr>
+<tr><td><code>fullscreen</code></td><td>light: var(--ds-shadow-border-base), 0px 1px 1px #00000005, 0px 8px 16px -4px #0000000a, 0px 24px 32px -8px #0000000f, var(--ds-shadow-background-border)<br>dark: var(--ds-shadow-border-base), 0px 1px 1px #00000005, 0px 8px 16px -4px #0000000a, 0px 24px 32px -8px #0000000f, var(--ds-shadow-background-border)</td><td class="tag">Geist</td></tr>
+</table>
+<h2>Motion: duration</h2>
+<p class="small">Geist 150ms default. Cursor dissent: 140 / 250ms.</p>
+<table><tr><th>Token</th><th>Value</th><th>Peer</th></tr>
+<tr><td><code>micro</code></td><td>150ms</td><td class="tag">Geist (Cursor 140ms)</td></tr>
+<tr><td><code>popover</code></td><td>200ms</td><td class="tag">Geist</td></tr>
+<tr><td><code>slow</code></td><td>250ms</td><td class="tag">Cursor</td></tr>
+<tr><td><code>overlay</code></td><td>300ms</td><td class="tag">Geist</td></tr>
+<tr><td><code>tooltip-delay</code></td><td>150ms</td><td class="tag">Geist</td></tr>
+</table>
+<h2>Motion: easing</h2>
+<table><tr><th>Token</th><th>Value</th><th>Peer</th></tr>
+<tr><td><code>standard</code></td><td>cubic-bezier(.4,0,.2,1)</td><td class="tag">Geist</td></tr>
+<tr><td><code>enter</code></td><td>cubic-bezier(0,0,.2,1)</td><td class="tag">Geist</td></tr>
+<tr><td><code>exit</code></td><td>cubic-bezier(.4,0,1,1)</td><td class="tag">Geist</td></tr>
+<tr><td><code>swift</code></td><td>cubic-bezier(.175,.885,.32,1.1)</td><td class="tag">Geist</td></tr>
+<tr><td><code>spring-out</code></td><td>cubic-bezier(.25,1,.5,1)</td><td class="tag">Cursor</td></tr>
+</table>
+<h2>Focus</h2>
+<p class="small">Focus color: blue-700 light, blue-900 dark. Never remove without a replacement.</p>
+<table><tr><th>Token</th><th>Value</th><th>Peer</th></tr>
+<tr><td><code>ring</code></td><td>0 0 0 2px var(--ds-background-100), 0 0 0 4px var(--ds-focus-color)</td><td class="tag">Geist</td></tr>
+<tr><td><code>outline</code></td><td>2px solid var(--ds-focus-color)</td><td class="tag">Geist</td></tr>
+</table>
+<h2>Z-index</h2>
+<table><tr><th>Token</th><th>Value</th><th>Peer</th></tr>
+<tr><td><code>base</code></td><td>0</td><td class="tag"></td></tr>
+<tr><td><code>sticky</code></td><td>100</td><td class="tag">TBD, need peer</td></tr>
+<tr><td><code>drawer</code></td><td>200</td><td class="tag">Geist</td></tr>
+<tr><td><code>modal</code></td><td>300</td><td class="tag">Geist</td></tr>
+<tr><td><code>menu</code></td><td>2001</td><td class="tag">Geist</td></tr>
+<tr><td><code>toast</code></td><td>5000</td><td class="tag">Geist</td></tr>
+<tr><td><code>tooltip</code></td><td>99999</td><td class="tag">Geist</td></tr>
+</table>
+<h2>Breakpoints</h2>
+<p class="small">Geist. Cursor dissent: 660 / 900 / 1140.</p>
+<table><tr><th>Token</th><th>Value</th><th>Peer</th></tr>
+<tr><td><code>sm</code></td><td>0px</td><td class="tag"></td></tr>
+<tr><td><code>md</code></td><td>601px</td><td class="tag">Geist</td></tr>
+<tr><td><code>lg</code></td><td>961px</td><td class="tag">Geist</td></tr>
+<tr><td><code>xl</code></td><td>1200px</td><td class="tag">Geist</td></tr>
+<tr><td><code>2xl</code></td><td>1400px</td><td class="tag">Geist</td></tr>
+<tr><td><code>docs</code></td><td>640px</td><td class="tag">Grok Bot</td></tr>
+</table>
+<h2 id="phi">Proportion: golden ratio (φ)</h2>
+<p class="small">Key rule: φ shapes pages and sections only. The 4px space scale, gaps, and controls stay untouched. Peers are silent on φ, so values are tagged Ty pick / math (peers silent).</p>
+<table><tr><th>Token</th><th>Value</th><th>Use</th></tr>
+<tr><td><code>--ds-ratio-phi</code></td><td>1.6180339887</td><td>φ</td></tr>
+<tr><td><code>--ds-ratio-phi-inverse</code></td><td>0.6180339887</td><td>major share (61.8%)</td></tr>
+<tr><td><code>--ds-ratio-phi-inverse-squared</code></td><td>0.3819660113</td><td>minor share (38.2%)</td></tr>
+<tr><td><code>--ds-split-phi</code></td><td>1.618fr 1fr</td><td>Columns / Split default</td></tr>
+<tr><td><code>--ds-aspect-phi</code></td><td>1.618 / 1</td><td>hero, feature, cover media</td></tr>
+<tr><td><code>--ds-aspect-phi-portrait</code></td><td>1 / 1.618</td><td>cover and poster tiles</td></tr>
+</table>
+<h3>Spans on the 12 column grid</h3>
+<table><tr><th>Preset</th><th>Spans</th><th>Geist cells</th></tr>
+<tr><td><code>phi</code> (primary)</td><td>7 / 5</td><td><code>1/8</code> + <code>8/13</code></td></tr>
+<tr><td><code>phi-wide</code></td><td>8 / 4</td><td><code>1/9</code> + <code>9/13</code></td></tr>
+<tr><td>Fibonacci spans</td><td>1, 2, 3, 5, 8 (and 12)</td><td>any start</td></tr>
+<tr><td>Triples</td><td>8+3+1, 8+2+2, 5+5+2, 5+2+5, 2+8+2</td><td>centered 8: <code>3/11</code></td></tr>
+</table>
+<p class="small">Why 7 / 5: exact φ split of 12 is 7.42 / 4.58. No Fibonacci pair sums to 12 (5 + 8 = 13), so 7 / 5 is the nearest whole column pair.</p>
+<div class="grid2"><div class="card"><span class="step-label">Split</span><ul>
+<li>Major on start; <code>reverse</code> flips.</li>
+<li>Gap stays 24 (12 compact).</li>
+<li>Minor pane floor 256.</li>
+<li>Stack under 601; 8 / 4 at md; <code>phi</code> from 961.</li>
+<li>Resizable starts 61.8%, snaps 38.2, 50, 61.8.</li>
+</ul></div><div class="card"><span class="step-label">Don't</span><ul>
+<li>Derive padding, gap, radius, or control height from φ.</li>
+<li>Add a φ type scale.</li>
+<li>Nest φ splits past one level.</li>
+<li>Use φ in compact (IDE) density.</li>
+<li>Add columns. Grid stays 12.</li>
+</ul></div></div>
+<h2>Do and don't</h2><div class="grid2"><div class="card"><span class="step-label">Do</span><ul>
+<li>Use the step job, not the hue: 400 border, 900 secondary text.</li>
+<li>Reference primitives from semantic tokens. No raw hex below primitives.</li>
+<li>Show a 2px ring plus 2px offset on every focusable element.</li>
+<li>Match control heights 32 / 36 / 40 inside one row.</li>
+<li>Name buttons with verb + noun. Sentence case.</li>
+<li>Ship empty, loading, error, success for every pattern.</li>
+</ul></div><div class="card"><span class="step-label">Don't</span><ul>
+<li>Signal state with color alone.</li>
+<li>Use hue names in the semantic tier.</li>
+<li>Animate past 300ms or ignore reduced motion.</li>
+<li>Open menus on hover.</li>
+<li>Add brand color in fundamentals. Skin owns it.</li>
+<li>Invent a value a peer already publishes.</li>
+</ul></div></div>
+<h2 id="imagery">Imagery craft: §12.0 to 12.13</h2><p>Section 12 now has the same grain as typography. Measure becomes subject fill, leading becomes breathing room, tracking becomes distribution, and readability becomes a 96 px thumbnail gate. The eight original leaves stay word for word at the top, in their original order.</p><div class="callout"><p><strong>Core law:</strong> anything that carries identity (product, packaging, label, logo, screenshot, printed text) is photographed in place or placed by code with measured geometry, light and grain. It never passes through a generative model. Scenes may be generated.</p></div><table><tr><th>Subsection</th><th>What it covers</th></tr><tr><td><a href="#s12">12.0</a></td><td>Baseline leaves, verbatim</td></tr><tr><td><a href="#s12">12.1</a></td><td>Intent and subject</td></tr><tr><td><a href="#s12">12.2</a></td><td>Composition grain</td></tr><tr><td><a href="#s12">12.3</a></td><td>Light and form</td></tr><tr><td><a href="#s12">12.4</a></td><td>Optics and perspective math</td></tr><tr><td><a href="#s12">12.5</a></td><td>Product and packaging truth</td></tr><tr><td><a href="#s12">12.6</a></td><td>Human presence, hospitality and lifestyle</td></tr><tr><td><a href="#s12">12.7</a></td><td>Market and persona settings</td></tr><tr><td><a href="#s12">12.8</a></td><td>Image brief schema</td></tr><tr><td><a href="#s12">12.9</a></td><td>Generation versus code placement</td></tr><tr><td><a href="#s12">12.10</a></td><td>Acceptance QA and failure gallery</td></tr><tr><td><a href="#s12">12.11</a></td><td>Delivery</td></tr><tr><td><a href="#s12">12.12</a></td><td>Illustration, avatar, video, logo boundaries</td></tr><tr><td><a href="#s12">12.13</a></td><td>Imagery brand character slot</td></tr></table><h3>Ty lock, Nov 5, 2026</h3><ul><li>Photographic numbers carry the tag (Craft, peers silent; Ty pick).</li><li>Identity pixels are never generated (MUST). Photographed in place is an equal path.</li><li>Persona table and setting matrix are required empty schemas every product A fills first.</li><li>Changed: fallback is icon plus a short text label, never an icon alone. Image scrim alpha may be solved per image, floor 0.20, rounded up to the next 0.05, with gray-alpha-900 as default and ceiling.</li><li>Full image brief for generated and composited images; photographs need ratio, alt, provenance, release and QA.</li><li>AI disclosure is metadata only by default.</li><li>Text on imagery stays 4.5:1 for every size.</li></ul><p class="small">New tokens: <code>imagery.thumbnail-gate</code> 96px, <code>imagery.edge-margin</code> 0.05, <code>imagery.copy-safe-zone-min</code> 0.24 by 0.20, <code>imagery.fill.*</code> bands, <code>opacity.image-scrim-floor</code> 0.20, <code>opacity.image-scrim-step</code> 0.05. Changelog in section 31.</p><h2>All 38 sections</h2><ol class="toc">
+<li><a href="#s1">Scope and usage</a></li>
+<li><a href="#s2">Token architecture</a></li>
+<li><a href="#s3">Color</a></li>
+<li><a href="#s4">Typography</a></li>
+<li><a href="#s5">Space and sizing</a></li>
+<li><a href="#s6">Shape and stroke</a></li>
+<li><a href="#s7">Elevation and depth</a></li>
+<li><a href="#s8">Opacity, scrim, blur</a></li>
+<li><a href="#s9">Layering (z-index)</a></li>
+<li><a href="#s10">Motion</a></li>
+<li><a href="#s11">Iconography</a></li>
+<li><a href="#s12">Imagery, illustration, media</a></li>
+<li><a href="#s13">Layout foundations</a></li>
+<li><a href="#s14">Layout primitives</a></li>
+<li><a href="#s15">Accessibility</a></li>
+<li><a href="#s16">Content and UI writing</a></li>
+<li><a href="#s17">Internationalization and localization</a></li>
+<li><a href="#s18">Platform adaptation</a></li>
+<li><a href="#s19">Component spec template (applies to every component)</a></li>
+<li><a href="#s20">Components: actions</a></li>
+<li><a href="#s21">Components: inputs and selection</a></li>
+<li><a href="#s22">Components: navigation</a></li>
+<li><a href="#s23">Components: containment and surfaces</a></li>
+<li><a href="#s24">Components: data display</a></li>
+<li><a href="#s25">Components: feedback and status</a></li>
+<li><a href="#s26">Components: overlays</a></li>
+<li><a href="#s27">Patterns: forms</a></li>
+<li><a href="#s28">Patterns: system states</a></li>
+<li><a href="#s29">Patterns: navigation and flows</a></li>
+<li><a href="#s30">Theming and skinning contract</a></li>
+<li><a href="#s31">Versioning and release</a></li>
+<li><a href="#s32">Governance and contribution</a></li>
+<li><a href="#s33">Migration and delta</a></li>
+<li><a href="#s34">Anti-slop bans</a></li>
+<li><a href="#s35">Peer extraction method</a></li>
+<li><a href="#s36">Tooling and delivery</a></li>
+<li><a href="#s37">Quality and verification</a></li>
+<li><a href="#s38">Completeness gates</a></li>
+</ol>
+<h3 id="s1">1. Scope and usage</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Purpose and non-goals</span></td></tr>
+<tr><td class="k">What this template is</td><td>fundamentals, token contracts, component contracts, checklists, copied from mature prod systems.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">What it is not</td><td>no brand look, no product skin, no logo, no illustration style. Skin layer is a separate doc.</td><td class="s tag">Geist: brand assets live apart from foundations</td></tr>
+<tr><td class="k">Supported platforms list</td><td>web first (Geist is web/React only); iOS and Android map via section 18; email = web subset; desktop app = Cursor density profile.</td><td class="s tag">Geist+Cursor</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">How to read this system</span></td></tr>
+<tr><td class="k">Layer model diagram slot</td><td>primitives (gray, blue, red... 100-1000) -&gt; semantic roles (bg, text, border, focus) -&gt; component tokens (button-bg) -&gt; skin overrides.</td><td class="s tag">Geist scales + role steps</td></tr>
+<tr><td class="k">Glossary</td><td>token = named value; role = semantic meaning of a step (Geist &quot;100 = default background&quot;); variant = visual type (Geist <code>variant</code>); state = interaction condition; density = compact/default/comfortable spacing set; skin = brand override layer.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Normative language rule</td><td>MUST / SHOULD / MAY per RFC 2119; Geist best-practice &quot;Do / Avoid&quot; maps to MUST / MUST NOT.</td><td class="s tag">Geist+Std</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Principles slots (empty, brand-neutral)</span></td></tr>
+<tr><td class="k">Principle slots</td><td>P1 Precise (means exact labels and values; not terse to the point of cryptic). P2 Calm (means restraint, no decoration; not bland). P3 Dense where work happens (means IDE-grade density in tools; not cramped docs). P4 Accessible by default (means contrast and keyboard first; not an afterthought).</td><td class="s tag">Geist design.md &quot;precise, calm, direct&quot;; Cursor density; Grok Bot calm</td></tr>
+<tr><td class="k">Tie-break rule</td><td>reader task &gt; accessibility &gt; consistency with Geist contract &gt; density &gt; aesthetics.</td><td class="s tag">Geist design.md priority order</td></tr>
+</table></div>
+<h3 id="s2">2. Token architecture</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Tiers</span></td></tr>
+<tr><td class="k">Primitive tier</td><td>raw scales, e.g. <code>--ds-gray-100</code>..<code>--ds-gray-1000</code>, <code>--ds-blue-700</code>, space <code>--geist-space</code> 4px multiples.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Semantic tier</td><td>role aliases mapped to Geist step meanings: bg/default=background-100, bg/subtle=background-200, border/default=gray-400, text/secondary=gray-900, text/primary=gray-1000.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Component tier</td><td>per-component aliases, e.g. <code>--themed-bg</code>, <code>--themed-fg</code>, <code>--themed-border</code> on Button.</td><td class="s tag">Geist live CSS</td></tr>
+<tr><td class="k">Skin override tier</td><td class="tbd">a skin may only re-point accent ramp and font slots (see section 30).</td><td class="s tag">Geist structure; skin values N/A, skin</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Naming</span></td></tr>
+<tr><td class="k">Naming grammar</td><td><code>--{ns}-{category}-{scale|role}-{step}</code> for primitives (<code>--ds-gray-400</code>); <code>{category}.{role}.{variant}.{state}</code> for semantic (<code>color.text.secondary</code>, <code>color.bg.hover</code>).</td><td class="s tag">Geist primitives; semantic grammar per outline</td></tr>
+<tr><td class="k">Reserved words</td><td>default, subtle, strong, hover, active, disabled, focus, inverse, alpha, 100..1000, small/medium/large.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Forbidden names</td><td>no hue names (blue, orange) in semantic tier; no &quot;primary-orange&quot;, no &quot;cream&quot;. Hue names allowed only in primitive tier.</td><td class="s tag">Geist: semantic uses step meaning</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Format and pipeline</span></td></tr>
+<tr><td class="k">Source of truth</td><td class="tbd">DTCG JSON (tokens.json). Geist ships CSS vars + Tailwind classes; DTCG is the neutral superset.</td><td class="s tag">Geist output; format TBD, need peer for DTCG specifically</td></tr>
+<tr><td class="k">Build outputs</td><td class="tbd">CSS custom properties (<code>--ds-*</code>), Tailwind classes (<code>text-copy-14</code>), JS consts; Swift/Kotlin TBD, need peer (Geist is web only).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Alias rules</td><td>semantic and component tokens MUST reference primitives with var(); no raw hex below the primitive tier. Geist uses hsla(var(--ds-gray-100-value),1) indirection.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Mode handling</td><td>light = <code>:root,.light-theme</code>; dark = <code>.dark-theme,.dark</code>; invert = <code>.invert-theme</code>; P3 via @supports(color: color(display-p3)). HC and density: see 3 and 13.</td><td class="s tag">Geist live CSS</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Coverage</span></td></tr>
+<tr><td class="k">Token inventory table slot</td><td>tokens.json lists every token with tier, value per mode, and source peer.</td><td class="s tag">Geist inventory via ds-tokens.json</td></tr>
+<tr><td class="k">Orphan check</td><td class="tbd">grep built CSS for each token name; any token with zero component references is flagged in the release audit.</td><td class="s tag">TBD, need peer for tooling; method is mechanical</td></tr>
+</table></div>
+<h3 id="s3">3. Color</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Primitive palette contract</span></td></tr>
+<tr><td class="k">Ramp structure</td><td>10 steps 100..1000, each step has a fixed job: 100 bg, 200 hover bg, 300 active bg, 400 border, 500 hover border, 600 active border, 700 high contrast bg, 800 hover high contrast bg, 900 secondary text/icons, 1000 primary text/icons.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Neutral ramp</td><td>Geist gray. Light L% 95,92,90,92,79,66,56,49,30,9; dark L% 10,12,16,18,27,53,56,49,63,93. Plus gray-alpha (black/white at 5..91%). backgrounds: 100 #fff / hsl(0 0% 4%), 200 hsl(0 0% 98%) / #000.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Brand/accent ramp slots</td><td class="tbd">one 10-step ramp following the same step jobs. Reference default = Geist blue (700 #0070f7 light, #0071f6 dark). Brand hue: N/A, skin.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Status ramps</td><td>success = green, warning = amber, danger = red, info = blue; extra categorical = teal, purple, pink. All 10 steps, light + dark values in tokens.json.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Color space and gamut</td><td>author in sRGB hex, ship P3 (oklch/lab) on supported displays via @supports.</td><td class="s tag">Geist: &quot;P3 colors are used on supported browsers and displays&quot;</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Semantic roles</span></td></tr>
+<tr><td class="k">Surface roles</td><td>base = background-100; raised = background-100 + shadow material; sunken = background-200; inverse = gray-1000; overlay = backdrop gray-100 (light) / background-200 (dark) at .8 opacity.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Text roles</td><td>primary gray-1000; secondary gray-900; tertiary gray-700 (Geist disabled-text step, used for tertiary meta); disabled gray-700 on gray-100; inverse background-100; on-accent #fff (<code>--ds-contrast-fg</code>).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Border roles</td><td>default gray-400; subtle gray-alpha-400; strong gray-500 (hover) / gray-600 (active); focus = focus ring (blue-700 light, blue-900 dark); error red-700/red-900.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Interactive roles</td><td>primary = gray-1000 bg + background-100 text (inverted button); secondary = background-100 + gray-alpha-400 border; tertiary = transparent; link = gray-1000 with underline, or blue-900 in prose.</td><td class="s tag">Geist button CSS; Cursor primary is also fg-inverted</td></tr>
+<tr><td class="k">State deltas</td><td class="tbd">hover = next step up (100-&gt;200, 400-&gt;500, 700-&gt;800); pressed = 300 / 600; selected = 200 bg + 1000 text; disabled = gray-100 bg + gray-700 text + gray-400 border; dragged = shadow-medium + gray-200 bg (dragged TBD, need peer).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Status roles</td><td>per status: fg = {hue}-900, bg = {hue}-100, border = {hue}-400, solid = {hue}-700.</td><td class="s tag">Geist step jobs</td></tr>
+<tr><td class="k">Data viz roles</td><td class="tbd">categorical = blue, purple, pink, red, amber, green, teal at step 700; sequential = one hue 100..1000; diverging = red-700 &lt;- gray-500 -&gt; blue-700.</td><td class="s tag">Geist ramps; categorical order TBD, need peer</td></tr>
+<tr><td class="k">Overlay and scrim</td><td>modal backdrop gray-100/background-200 at opacity .8; image scrim gray-alpha-900.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Selection and highlight</td><td class="tbd">text selection = blue-300 bg + gray-1000 text; search match = amber-300 bg.</td><td class="s tag">Geist ramps; exact pick TBD, need peer</td></tr>
+<tr><td class="k">Skeleton roles</td><td>gray-100 base, gray-200 shimmer; no shimmer under reduced motion.</td><td class="s tag">Geist Skeleton</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Modes</span></td></tr>
+<tr><td class="k">Light mapping</td><td>:root and .light-theme values in tokens.json.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Dark mapping</td><td>not inverted; dark gray ramp is re-tuned (100 = 10% L, 1000 = 93% L), accents re-tuned (blue-900 dark #50a8ff vs light #0064e2), background-200 goes darker than 100 (#000).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">High contrast mapping</td><td class="tbd">under <code>prefers-contrast: more</code> swap secondary text to 1000, borders to 600, and gray-alpha to solid gray. Geist publishes no HC theme.</td><td class="s tag">TBD, need peer; rule from WCAG</td></tr>
+<tr><td class="k">Forced colors</td><td>honor <code>forced-colors: active</code>; use system colors (CanvasText, ButtonText, Highlight); focus ring falls back to <code>--ds-focus-ring-outline</code> 2px solid.</td><td class="s tag">Geist outline token + Std</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Rules</span></td></tr>
+<tr><td class="k">Pairing table</td><td>1000 and 900 text allowed on background-100/200 and gray-100..300; on-accent white only on {hue}-700/800; never 900 text on 700 bg.</td><td class="s tag">Geist step jobs</td></tr>
+<tr><td class="k">Color never sole carrier</td><td>every status color pairs with text or icon; Badge, Status Dot, Gauge all ship text labels.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Brand color limits</td><td>accent appears on focus, links, primary CTA only if skin chooses; neutral gray does 90% of UI.</td><td class="s tag">Geist &quot;gray by default&quot;; Cursor same restraint</td></tr>
+</table></div>
+<h3 id="s4">4. Typography</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Font contract</span></td></tr>
+<tr><td class="k">Family slots</td><td class="tbd">display/text = sans slot (reference Geist Sans; DropFast page uses Inter per house CSS); mono = Geist Mono; serif optional. Fallback: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; mono: ui-monospace, SFMono-Regular, Menlo, monospace. Final family: N/A, skin.</td><td class="s tag">Geist + Grok Bot</td></tr>
+<tr><td class="k">Licensing and loading</td><td>Geist Sans/Mono are SIL OFL 1.1, npm <code>geist</code> or next/font; variable fonts; <code>font-display: swap</code>; subset Latin + Cyrillic.</td><td class="s tag">Geist font.md</td></tr>
+<tr><td class="k">Platform fallback</td><td>if web font not loaded, system-ui stack, metrics-matched fallback face (Cursor ships &quot;CursorGothic Fallback&quot;).</td><td class="s tag">Cursor</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Type roles</span></td></tr>
+<tr><td class="k">Display</td><td>heading-72, 64, 56, 48 (marketing heroes only).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Headline/title</td><td>heading-40, 32, 24, 20, 16, 14 (weight 600, Subtle modifier = 500 + gray-900).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Body</td><td>copy-16 (modals, roomy), copy-14 (most common), copy-13 (dense). Marketing: copy-18/20/24.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Label/UI</td><td>label-20..12; label-14 most common (menus); button-16/14/12 only inside buttons.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Caption/meta</td><td>label-13 (secondary line), label-12 (tertiary in busy views; calendar capitals). Overline: 12px, 500, uppercase, +0.06em.</td><td class="s tag">Geist; overline from Grok Bot step-label</td></tr>
+<tr><td class="k">Code/mono</td><td>label-14-mono, label-13-mono, label-12-mono, copy-13-mono (inline code).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Numeric</td><td><code>font-variant-numeric: tabular-nums</code> on label-13 and all numeric table columns.</td><td class="s tag">Geist</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Per-role properties</span></td></tr>
+<tr><td class="k">Size/line/weight/tracking</td><td>heading-32 32/40 600 -1.28px; heading-24 24/32 600 -0.96px; heading-20 20/26 -0.4px; heading-16 16/24 -0.32px; copy-14 14/20 400; label-14 14/20 400; button-14 14/20 500. Full table in tokens.json. Case: sentence or Title per section 16.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Paragraph spacing</td><td>1.25rem (20px) between paragraphs in docs; product copy uses stack tokens.</td><td class="s tag">Grok Bot</td></tr>
+<tr><td class="k">Measure</td><td>docs 48rem container, lead 36rem; aim 60-80 characters.</td><td class="s tag">Grok Bot</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Scaling</span></td></tr>
+<tr><td class="k">Scale method</td><td>fixed named steps (no ratio): 12,13,14,16,18,20,24,32,40,48,56,64,72.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Responsive type</td><td>step down one heading size under 640px (Grok Bot h1 48 -&gt; 36); no fluid clamp in Geist.</td><td class="s tag">Grok Bot</td></tr>
+<tr><td class="k">User font scaling</td><td>sizes in rem on web; layouts must survive 200% zoom without clipping.</td><td class="s tag">Std WCAG 1.4.4</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Rules</span></td></tr>
+<tr><td class="k">Truncation and wrapping</td><td>labels single-line with ellipsis + tooltip; copy wraps; headings <code>text-wrap: balance</code>, body <code>text-wrap: pretty</code>.</td><td class="s tag">Geist label vs copy; Grok Bot wrap</td></tr>
+<tr><td class="k">Hierarchy limits</td><td>max 3 heading levels per screen; one heading-32+ per page.</td><td class="s tag">Grok Bot h1/h2/h3 only</td></tr>
+<tr><td class="k">Text on imagery</td><td>only over scrim gray-alpha-900 or solid background; must pass 4.5:1.</td><td class="s tag">Std; Geist translucent scrim</td></tr>
+<tr><td class="k">Text on imagery measurement</td><td>measured per 12.9 at the 95th percentile luminance of the text box plus 8 px pad (5th percentile under dark text); the floor stays 4.5:1 for all text on imagery, display sizes included.</td><td class="s tag">Std plus Math</td></tr>
+</table></div>
+<h3 id="s5">5. Space and sizing</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Base unit and scale</td><td>4px base. 4, 8, 12, 16, 24, 32, 40, 64, 96, 128, 192, 256.</td><td class="s tag">Geist `--geist-space` 1x..64x</td></tr>
+<tr><td class="k">Inset tokens</td><td>control x-padding 12 (gap-half); card 24 (gap); dense row 8; popover 6, popover row 0 8.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Stack tokens</td><td>8 tight, 12 related, 24 group, 40 section, 64 page section. Docs rhythm 20 / 48.</td><td class="s tag">Geist + Grok Bot</td></tr>
+<tr><td class="k">Inline tokens</td><td>4 icon-to-label, 8 control gap, 12 toolbar gap, 24 column gap.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Component sizes</td><td>small 32, medium 36 (default), large 40; tiny 24 (button inside input). Cursor IDE rows run 22-28 (dense profile).</td><td class="s tag">Geist; Cursor dissent: IDE density goes below 32 for tree/list rows only</td></tr>
+<tr><td class="k">Icon sizes</td><td>16 default (Geist icons are 16x16); 12 tiny, 20, 24 large.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Avatar/media sizes</td><td>14, 16, 24, 32, 48, 90 (Avatar sizes); 20-24 beside label-14, 32 beside label-16, 48-64 headers.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Content widths</td><td class="tbd">page 1400 (<code>--ds-page-width</code>) + 24 margin; docs measure 48rem (768); modal ~540 TBD, need peer.</td><td class="s tag">Geist + Grok Bot</td></tr>
+<tr><td class="k">No off-scale values</td><td>components MUST use space tokens; lint rejects raw px except 1px hairlines.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Proportion layer note</td><td>φ never sets padding, gap, radius, or control size; scale above unchanged. See <a href="#s14b">14b</a>.</td><td class="s tag">Ty pick / math (peers silent)</td></tr>
+</table></div>
+<h3 id="s6">6. Shape and stroke</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Radius scale</td><td>0, 4 (inline code, small chip), 6 (base, small, tooltip, controls), 12 (medium, large, menu, modal), 16 (fullscreen; doc cards), full 9999 (pill, avatar).</td><td class="s tag">Geist materials + Grok Bot code 4 / card 16</td></tr>
+<tr><td class="k">Radius roles</td><td>control 6; container 12; overlay 12; fullscreen 16; pill full; doc card 16.</td><td class="s tag">Geist; Grok Bot dissent: doc cards 16 vs Geist container 12, keep 16 on guide surfaces only</td></tr>
+<tr><td class="k">Nested radius</td><td class="tbd">inner = outer minus padding, floor 0 (e.g. 12 card, 6 pad -&gt; 6 inner).</td><td class="s tag">TBD, need peer; standard geometry</td></tr>
+<tr><td class="k">Border widths</td><td>1px default (hairline, <code>0 0 0 1px</code> shadow-border); 2px focus outline; no 3px+.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Dividers</td><td>1px gray-400 solid (or gray-alpha-400 over tinted surfaces); draw each border once, divider inside the border.</td><td class="s tag">Geist &quot;draw each border once&quot;</td></tr>
+<tr><td class="k">Focus ring</td><td><code>0 0 0 2px bg-100, 0 0 0 4px focus-color</code> (2px gap, 2px ring) follows element radius; outline fallback 2px solid.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Corner smoothing</td><td class="tbd">none on web; iOS may use continuous corners (native).</td><td class="s tag">TBD, need peer</td></tr>
+</table></div>
+<h3 id="s7">7. Elevation and depth</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Levels</td><td>surface (base, small, medium, large) on the page; floating (tooltip, menu, modal, fullscreen) above it. 8 named materials.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Shadow tokens</td><td>small <code>0 2px 2px #0000000a</code>; medium <code>0 2px 2px #0000000a, 0 8px 8px -8px #0000000a</code>; large <code>0 2px 2px #0000000a, 0 8px 16px -4px #0000000a</code>; menu adds <code>0 4px 8px -4px #0000000a, 0 16px 24px -8px #0000000f</code>; modal <code>0 8px 16px -4px #0000000a, 0 24px 32px -8px #0000000f</code>; all with 1px border-base ring. Dark values stronger (e.g. small <code>0 1px 2px #00000029</code>).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Dark tonal alternative</td><td>dark mode leans on 1px border ring (<code>#ffffff25</code>) + tonal gray steps over shadow; Cursor uses tonal card-01..04 steps.</td><td class="s tag">Geist+Cursor</td></tr>
+<tr><td class="k">Role mapping</td><td>card = material-small/medium; menu/popover = material-menu; modal = material-modal; toast = material-menu; tooltip = material-tooltip; sheet/fullscreen = material-fullscreen.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Rule</td><td>elevation says &quot;this floats above that&quot;, never decoration; shadows stay translucent (no gray halo).</td><td class="s tag">Geist</td></tr>
+</table></div>
+<h3 id="s8">8. Opacity, scrim, blur</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Opacity scale</td><td>use gray-alpha steps (5, 8, 10, 21, 34, 44, 51, 70, 91%) rather than an opacity token.</td><td class="s tag">Geist gray-alpha</td></tr>
+<tr><td class="k">Disabled rule</td><td>dedicated colors, not opacity: gray-100 bg, gray-700 text, gray-400 border.</td><td class="s tag">Geist button CSS</td></tr>
+<tr><td class="k">Scrim tokens</td><td>modal = backdrop color at .8; sheet = same, non-modal sheet no scrim; image overlay = gray-alpha-900.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Backdrop blur</td><td>none by default; if used, 8/12/16px with solid fallback when <code>prefers-reduced-transparency</code>.</td><td class="s tag">Cursor blur-sm/md/lg; Geist silent</td></tr>
+<tr><td class="k">State layer opacity</td><td class="tbd">N/A. Geist uses step swaps (100-&gt;200-&gt;300) instead of overlay layers.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Image overlay solve</td><td>image overlay alpha MAY be solved per image per 12.9: the lowest alpha that passes §4 text on imagery, rounded up to the next 0.05 (<code>opacity.image-scrim-step</code>), never below 0.20 when text is present (<code>opacity.image-scrim-floor</code>); gray-alpha-900 stays the default and the ceiling. Above the ceiling use a solid background.</td><td class="s tag">Math; floor Craft, peers silent; Ty pick; Changed Nov 5, 2026</td></tr>
+</table></div>
+<h3 id="s9">9. Layering (z-index)</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Named scale</td><td class="tbd">base 0, sticky 100 (TBD, need peer), drawer 200, modal 300, menu 2001, toast 5000, tooltip 99999.</td><td class="s tag">Geist `--ds-z-*`</td></tr>
+<tr><td class="k">Stacking context rules</td><td>overlays portal to body; no z-index inside components except via tokens; <code>isolation: isolate</code> on cards that animate.</td><td class="s tag">Geist portals</td></tr>
+<tr><td class="k">Multiple overlays</td><td>last opened on top; menu inside modal sits above (2001 &gt; 300); toasts stay reachable above modals; Sheet defaults modal=false so toasts stay reachable.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">No raw numbers</td><td>components reference <code>--ds-z-*</code> only.</td><td class="s tag">Geist</td></tr>
+</table></div>
+<h3 id="s10">10. Motion</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Duration scale</td><td>140-150ms micro (Geist default 150, Cursor 140); 200ms popover; 250ms slow (Cursor); 300ms overlay.</td><td class="s tag">Geist+Cursor</td></tr>
+<tr><td class="k">Easing</td><td>standard cubic-bezier(.4,0,.2,1); enter (ease-out) (0,0,.2,1); exit (ease-in) (.4,0,1,1); emphasized/swift (.175,.885,.32,1.1).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Springs</td><td>CSS approximation only: Cursor ease-out-spring (.25,1,.5,1); Geist swift has slight overshoot 1.1. No physics springs.</td><td class="s tag">Cursor+Geist</td></tr>
+<tr><td class="k">Role mapping</td><td>micro (hover, color) 150 standard; popover/menu 200 swift; modal/overlay 300 swift with scale .96 -&gt; 1; page: none (instant route change).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Choreography</td><td class="tbd">one moving thing at a time; no stagger in product UI; collapse animates height.</td><td class="s tag">Geist Collapse; stagger TBD, need peer</td></tr>
+<tr><td class="k">Overlay patterns</td><td class="tbd">modal fade + scale from .96; menu/popover fade + 4px slide from trigger; sheet slide from side; drawer slide up; toast slide from bottom-right.</td><td class="s tag">Geist overlay scale; directions TBD, need peer</td></tr>
+<tr><td class="k">Gesture motion</td><td>drawer swipe-down dismiss, interruptible, follows finger.</td><td class="s tag">Geist Drawer</td></tr>
+<tr><td class="k">Reduced motion</td><td>under <code>prefers-reduced-motion: reduce</code> replace movement with opacity fade at 150ms; stop skeleton shimmer, loading dots, spinner stays (essential).</td><td class="s tag">Geist Skeleton/Spinner/LoadingDots</td></tr>
+<tr><td class="k">Performance</td><td>animate transform and opacity only; Geist button transitions border-color, background, color, transform, box-shadow at 150ms.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Purpose and cap</td><td>motion explains change; cap 300ms for UI.</td><td class="s tag">Geist max token .3s</td></tr>
+</table></div>
+<h3 id="s11">11. Iconography</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Icon set</td><td class="tbd">Geist icons via <code>@vercel/geistcn-assets/icons</code> (<code>IconPencilEdit</code>) as reference set; product set: N/A, skin.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Grid and stroke</td><td class="tbd">16x16 viewBox, <code>fill=&quot;currentColor&quot;</code> (filled glyph geometry, not stroked), 1.5px-equivalent visual weight.</td><td class="s tag">Geist icons page; weight TBD, need peer</td></tr>
+<tr><td class="k">Size tied to type</td><td>16 with label-14/copy-14; 12 with label-12; 20-24 with heading-20+.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Filled vs outline</td><td>one style per set (Geist is single style); state shown by color/background, not by swapping fill.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Icon colors</td><td>gray-900 default, gray-1000 active/hover, status hue-900 for status, inherit currentColor.</td><td class="s tag">Geist step 900/1000 = text and icons</td></tr>
+<tr><td class="k">Icon + label</td><td>icon leads label with 4-8px gap; never two icons in one badge.</td><td class="s tag">Geist Badge</td></tr>
+<tr><td class="k">Icon-only a11y</td><td>needs <code>svgOnly</code> + <code>aria-label</code> naming action + target (&quot;Copy deployment URL&quot;), plus Tooltip.</td><td class="s tag">Geist Button</td></tr>
+<tr><td class="k">RTL mirroring list</td><td>arrows, chevrons, back/forward, undo/redo, list-indent, external-link; never mirror logos, checkmarks, media play.</td><td class="s tag">Std; Geist silent</td></tr>
+<tr><td class="k">Contribution</td><td>request via governance (section 32); 16px grid, currentColor, named <code>Icon{Object}{Modifier}</code>.</td><td class="s tag">Geist naming</td></tr>
+<tr><td class="k">Naming</td><td><code>Icon</code> + PascalCase object + modifier: <code>IconPencilEdit</code>, <code>IconArrowLeft</code>.</td><td class="s tag">Geist</td></tr>
+</table></div>
+<h3 id="s12">12. Imagery, illustration, media</h3><p class="small">Expanded in place as 12.0 to 12.13 (minor release, Nov 5, 2026, Ty lock pt17u). 12.0 holds the eight original leaves word for word and in their original order, each with at most one appended &quot;See 12.x&quot; pointer. 12.1 to 12.13 add craft rules on top; nothing is relaxed. Two existing wordings changed with Ty&#x27;s yes: the fallback label (12.11) and the solved image scrim (12.9 and §8). Every rule is either universal (physics, perception, accessibility, consent, math) or an empty brand slot marked N/A, skin (see 12.13). Original A still has no brand look.</p><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.0 Baseline leaves (Preserved, verbatim, original order)</span></td></tr>
+<tr><td class="k">Aspect ratios</td><td>16:9 (video, OG), 1:1 (avatar, tile), 4:3, 3:2, plus φ landscape <code>--ds-aspect-phi</code> 1.618 / 1 and portrait <code>--ds-aspect-phi-portrait</code> 1 / 1.618 (hero, feature, cover media). <span class="small">See 12.11.</span></td><td class="s tag">Cursor <code>--aspect-video</code>; φ Ty pick / math (peers silent); others TBD, need peer beyond 16:9</td></tr>
+<tr><td class="k">Image treatment</td><td>radius 12 in product (material-medium), 16 on guide pages; 1px border-ring; placeholder = Skeleton squared. <span class="small">See 12.11.</span></td><td class="s tag">Geist + Grok Bot</td></tr>
+<tr><td class="k">Loading and fallback</td><td>reserve width/height to avoid layout shift; Skeleton while loading; fallback to neutral gray-100 block with icon. <span class="small">See 12.11 (Changed: icon plus a short text label).</span></td><td class="s tag">Geist Skeleton</td></tr>
+<tr><td class="k">Alt text</td><td>describe content when it informs; <code>alt=&quot;&quot;</code>/aria-hidden when decorative or when title already says it. <span class="small">See 12.11.</span></td><td class="s tag">Geist Book</td></tr>
+<tr><td class="k">Illustration slot</td><td class="tbd">N/A, skin. Geist reserves decorative covers (Book) for marketing only. <span class="small">See 12.12.</span></td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Avatar rules</td><td><code>src</code> first, then <code>letter</code> 1-2 uppercase chars, <code>placeholder</code> only while loading; circle shape; groups via AvatarGroup. <span class="small">See 12.12.</span></td><td class="s tag">Geist Avatar</td></tr>
+<tr><td class="k">Video/media baseline</td><td>no autoplay with sound; captions required; controls keyboard reachable. <span class="small">See 12.12.</span></td><td class="s tag">Std; peers silent</td></tr>
+<tr><td class="k">Logo slot</td><td class="tbd">N/A, skin. Geist ships logos separately with light/dark variants (black on light, white on dark). <span class="small">See 12.12.</span></td><td class="s tag">Geist</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.0a Imagery source tags and locked decisions</span></td></tr>
+<tr><td class="k">Source tags</td><td>(Std) accessibility, legal or platform standard. (Math) geometry or photometry that holds for any camera and any brand. (Craft, peers silent; Ty pick) a photographic convention with a numeric default; A&#x27;s peers publish no photography law, so these carry the same honesty tag A uses for φ values. N/A, skin (see 12.13) means the product A decides.</td><td class="s tag">Ty lock 1, Nov 5, 2026</td></tr>
+<tr><td class="k">Ty lock record</td><td>(1) Craft tag accepted for photographic numeric defaults. (2) Identity pixels are never generated: MUST for every business; scenes may be generated; photographed in place is an equal path. (3) Persona table and setting matrix are required empty schemas every product A fills before imagery work. (4) Fallback is icon plus a short text label, never an icon alone; per image solved scrim alpha allowed with floor 0.20, rounded up to the next 0.05, gray-alpha-900 stays default and ceiling. (5) Full brief required for generated and composited images; photographs need the light subset. (6) AI disclosure is metadata only by default. (7) §12 expanded in place as 12.0 to 12.13.</td><td class="s tag">Ty pt17u</td></tr>
+<tr><td class="k">Peer pass still owed</td><td>per §35, run a peer extraction on published photography guidelines (for example Apple, Shopify Polaris, Material, Airbnb brand photography) before any Craft value is marked settled beyond Ty pick.</td><td class="s tag">This doc</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.1 Intent and subject (New)</span></td></tr>
+<tr><td class="k">Purpose</td><td>an image is a sentence: one subject, one claim, one reading direction. Decide what the image is for before deciding how it looks.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">One primary subject</td><td>exactly one primary subject, at most one secondary, everything else tertiary. Two subjects at equal weight is a failure, not a style.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Asset classes</td><td class="tbd">N/A, skin (see 12.13). Each product A defines its classes (for example product, in use, flat lay, screenshot, scene, detail, portrait, team) with a default ratio and the primary subject per class.</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Persona before pixels</td><td>every composed image maps to exactly one persona from the 12.7 persona table before production. &quot;General audience&quot; is not a target.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">No claims in imagery</td><td>an image never carries a claim the copy cannot make (awards, ratings, prices, dates, certifications, before and after results).</td><td class="s tag">Std, truth in advertising practice</td></tr>
+<tr><td class="k">Regulated category gate</td><td>if the product A declares a regulated category (alcohol, tobacco or cannabis, pharma, financial results, products for children), images that can be served before the relevant gate show product and place without the regulated act in frame. Declaration: N/A, skin (see 12.13).</td><td class="s tag">Std, advertising codes</td></tr>
+<tr><td class="k">Acceptance checks</td><td>exactly one primary subject named in the brief and visible at 3:1 against its surround; persona tag present; no claim in frame that copy lacks; regulated flag set where applicable.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">B cascade hint</td><td>Image / media tile, Hero Sections and Product Overviews expose a subject kind and a focal point; Testimonials never pair a quote with a synthetic face.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">C cascade hint</td><td>every composed page lists which asset class fills each slot; pages served before a gate pick only gate safe assets.</td><td class="s tag">This doc</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.2 Composition grain (New)</span></td></tr>
+<tr><td class="k">Purpose</td><td>give imagery the same precision §4 gives type, so a B contract can enforce it and a C asset can be checked.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Typography analogy</td><td>measure becomes subject fill (share of frame height the primary occupies); leading becomes breathing room (clear space around the subject and between depth planes); tracking becomes distribution (even spacing edge to edge); kerning becomes pairwise gaps (two adjacent objects never kiss); hierarchy becomes weight (primary, secondary, tertiary by luminance contrast and focus); readability becomes the thumbnail gate.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Camera height</td><td>follows subject truth. Product: lens axis at the identity center (label, logo face, screen center), pitch 0 degrees plus or minus 3. People and rooms: seated eye height 1100 to 1200 mm, pitch 0 to minus 5. Standing scenes 1500 to 1600 mm. Tabletop detail 1000 mm, pitch 10 to 15 down.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Angle families</td><td>frontal (yaw 0) for product truth; three quarter (yaw 30 to 45, reference 35) for story and table scenes; profile (85 to 90) for side reading actions; top down flat lay (pitch 90) for flat goods. No Dutch tilt. Horizon and verticals within 0.5 degrees of level.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Placement grid per ratio</td><td>landscape (φ and 16:9): primary centroid on a φ line at 0.382 or 0.618 of width, vertical centroid 0.5 plus or minus 0.05. Portrait product: centered, x 0.5, y 0.5 plus or minus 0.03. Square, 4:3, 3:2: thirds intersection, or dead center for a single product. Center is the product truth position and is not used for people or landscapes.</td><td class="s tag">Math for the lines from §14b; Craft, peers silent; Ty pick for the assignment</td></tr>
+<tr><td class="k">Golden ratio inside a frame</td><td>φ lines place subjects and copy zones. When a hero image sits under a §14b φ split, the copy zone aligns with the grid&#x27;s minor pane (5 of 12 columns), not a free 38.2 percent; inside a full bleed image the copy zone is 38.2 percent of width. φ never sets image radius, ring width, caption gap or any inset; those stay §5 and §6 tokens.</td><td class="s tag">Ty pick / math (peers silent)</td></tr>
+<tr><td class="k">Hierarchy in three steps</td><td>primary at least 3:1 luminance contrast against its immediate surround, secondary 1.5:1 to 3:1, tertiary under 1.5:1 or out of focus. Measured in CIELAB L on 8 by 8 px patches.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Subject fill (measure)</td><td>portrait product 55 to 70 percent of frame height; hero and place scenes 30 to 45 percent; thumbnails and avatars 60 to 80 percent. Tokens <code>imagery.fill.*</code>.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Breathing room (leading)</td><td>at least 0.5 times the subject&#x27;s shortest dimension on every open side; nothing touches the frame edge except a deliberate crop. Expressed in frame fractions, never in space tokens.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Copy safe zone</td><td>declared before capture. Contains only tertiary content, CIELAB L standard deviation under 12 (0 to 100 scale), minimum 24 percent of width by 20 percent of height (token <code>imagery.copy-safe-zone-min</code>), clear of the product and any face band. Overlaid type only on assets flagged for it; portrait and square assets SHOULD NOT carry overlaid type.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Depth in three planes</td><td>foreground 5 to 15 percent of frame area as a soft frame; midground holds the primary; background at least 2 stops softer or 1 stop darker. A single flat plane only for packshots and flat lays.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Edges and cropping</td><td>crop limbs mid segment, never at a joint. Never crop through the identity zone (label, logo, screen, key feature). Faces: no crop between chin and brow. Rims and edges either clear by 4 percent or cropped decisively by 20 percent or more. Tangency audit at 200 percent zoom.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Reading direction</td><td>subjects face or lean toward the copy. Never mirror text, logos, labels, screens or faces to fix direction; reshoot, recrop or pick another asset. In RTL locales the copy side swaps through art direction (12.11), never by flipping the image.</td><td class="s tag">Std for never mirroring text; facing toward copy Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Thumbnail gate</td><td>downsample to 96 px on the short side (96 is the §5 24x step, token <code>imagery.thumbnail-gate</code>); the primary subject class is identifiable with no caption and the identity zone stays distinct from its surround.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Acceptance checks</td><td>C1 horizon within 0.5 degrees; C2 product pitch within 3 degrees (keystone under 2 percent); C3 centroid within 3 percent of the named grid line; C4 fill within band; C5 clearance and no tangency; C6 one primary at 3:1; C7 copy zone L standard deviation under 12 and text passes §4; C8 three planes; C9 no forbidden crop; C10 96 px gate; C11 faces toward copy and nothing mirrored.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">B cascade hint</td><td>Image / media tile exposes focal point x and y in 0 to 1 and the ratio token; Hero Sections (&quot;Split with image&quot;, &quot;Image behind text&quot;, &quot;Offset image&quot;) expose copy side and run the copy zone check at build; Product Lists and Product Overviews fix centered product placement and fill; Avatars fix face centroid and fill; Carousel keeps one reading direction per row.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">C cascade hint</td><td>landing pages put the subject on the φ line opposite the headline; product pages use the frontal family; category grids run the 96 px gate on every tile.</td><td class="s tag">This doc</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.3 Light and form (New)</span></td></tr>
+<tr><td class="k">Purpose</td><td>light is the strongest consistency signal in a set; people see mismatched shadows before mismatched grading. Declare light as numbers and measure it on delivered pixels.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Key as clock plus elevation</td><td>key position is a clock hour (1 to 12 seen from camera) plus elevation in degrees. A set shares one clock hour plus or minus one and elevation plus or minus 5 degrees.</td><td class="s tag">Math method; tolerances Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Shadow consistency</td><td>all shadows in one frame converge on one source; across a set shown together, shadow azimuths agree within 10 degrees.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Fill ratio</td><td>declared per image type. Reference bands: ecommerce product 3:1 to 4:1 lit to shadow; editorial and lifestyle up to 6:1; archive and thumbnails 3:1 to 4:1. Default: N/A, skin (see 12.13).</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Kelvin declared, then measured</td><td>key and fill Kelvin are declared in the brief; delivered neutrals land within 200 K. Values N/A, skin. Product color truth packshots use neutral light (4800 to 6500 K) so product colors are checkable; warm persona scenes are allowed, and product color is checked after white balance to the scene illuminant.</td><td class="s tag">Math method; Craft range, peers silent; Ty pick</td></tr>
+<tr><td class="k">Source size controls softness</td><td>source apparent diameter over subject largest dimension: above 1.0 soft, below 0.3 hard.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Specular truth</td><td>glossy products (glass, metal, lacquer, screens) show one primary specular aligned within 15 degrees of the declared key&#x27;s reflection; no ring light catches, crew, screens or clutter in reflections.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Shadow floor</td><td>shadow side pixels on the primary stay above 12 of 255 in every channel; no crushed blacks.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Shadow color</td><td>shadows carry ambient color (cool under skylight, warm bounce indoors). Zero saturation shadows are a defect.</td><td class="s tag">Math, physics</td></tr>
+<tr><td class="k">One key per composition</td><td>any accent at least 2 stops dimmer and at least 90 degrees from the key.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Faces and hands take the key</td><td>30 to 60 degrees off axis; brightest skin highlight at or below 92 percent luminance, never clipped.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Finite light vocabulary</td><td>the product A declares a short, named list of light presets, each with Kelvin, elevation and contrast ranges; no ad hoc setups outside the list. List: N/A, skin (see 12.13).</td><td class="s tag">Brand slot with a universal rule</td></tr>
+<tr><td class="k">Acceptance checks</td><td>L1 shadows converge; L2 shadow floor; L3 lit to shadow within declared range; L4 one primary specular aligned; L5 neutral within 200 K of target; L6 set azimuth within 10 degrees; L7 shadows carry color.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">B cascade hint</td><td>Product Lists and Product Overviews require one light preset per instance so grids match; Hero Sections and Media Objects declare a preset per slot; Carousel and galleries enforce set azimuth.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">C cascade hint</td><td>a category page or landing row is reviewed as a set (L6); seasonal swaps keep the preset list.</td><td class="s tag">This doc</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.4 Optics and perspective math (New)</span></td></tr>
+<tr><td class="k">Purpose</td><td>optics decide whether a product looks like itself. Lens, distance and pitch are declared numbers, and the image is measured against them.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Focal length by class (35 mm equivalent)</td><td>35 mm for rooms and tables; 50 mm for people at conversational distance; 85 mm for product, packaging and portrait. Never wider than 28 mm for people (faces distort); longer than 135 mm flattens rooms.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Distance follows fill</td><td>distance is solved from the class fill band (12.2) and focal length, not guessed.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Focal length in pixels</td><td>f px = long side px times focal mm divided by 36. At 35 mm that is 0.972 times the long side; at 85 mm, 2.36 times.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Horizon and pitch</td><td>at zero pitch the horizon sits at image center. If the measured horizon deviates from H/2 by more than 3 percent of H, pitch = atan((H/2 minus horizon) divided by f px); correct verticals or reject. Product axis plumb within 0.5 degrees.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Keystone</td><td>planar identity faces (label, box front, screen, sign) differ in top and bottom width by no more than 2 percent in product shots.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Identity face orientation</td><td>the identity face turns 0 to 15 degrees from the lens; the visible identity face stays at least 35 percent of the product&#x27;s width for cylinders and boxes. Back faces never show unless the class says so.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Depth of field</td><td>the whole identity zone sits inside the depth of field; edge letters are no softer than center letters. Background at least 2 stops softer or 1 stop darker than midground. Aperture values are worked examples in the product A.</td><td class="s tag">Math method</td></tr>
+<tr><td class="k">Distortion</td><td>no visible barrel or pincushion on straight edges; correct with the lens profile, never by warping the product.</td><td class="s tag">Std photographic practice</td></tr>
+<tr><td class="k">Acceptance checks</td><td>O1 product plumb within 0.5 degrees; O2 identity face width at least 35 percent; O3 background softer and identity edges sharp; plus C2 keystone.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">B cascade hint</td><td>Product Overviews and Product Lists forbid CSS rotate, skew or stretch on product images and set a minimum rendered width so the identity floor (12.5) holds; Hero Sections declare focal class.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">C cascade hint</td><td>product pages and OG images are checked for keystone and plumb before release.</td><td class="s tag">This doc</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.5 Product and packaging truth (New, generic product)</span></td></tr>
+<tr><td class="k">Purpose</td><td>the product is the one object that must be literally true in every asset: a bottle, a box, a garment, a dish, an artwork print or a software screen.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Product lock record</td><td>universal schema, values N/A, skin (see 12.13): physical dimensions in mm, identity zones (logo, label, screen, signature feature), materials, reference colors in CIELAB with tolerances, approved angles, and a locked reference source.</td><td class="s tag">Brand slot with a universal schema</td></tr>
+<tr><td class="k">Shape is sacrosanct</td><td>product silhouette and proportions are never stretched, warped, liquified or regenerated. Product pixels come from photography or a locked reference placed by code.</td><td class="s tag">Std truth in representation</td></tr>
+<tr><td class="k">Identity legibility floor</td><td>the logo or wordmark on product keeps at least 8 px x height at the smallest delivery size; target 12 px on a standard product card. Below the floor, choose a different crop or asset.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Identity art is never generated</td><td>logos, labels, packaging text, certifications, UI screens and all type are never inpainted, redrawn or replaced by a model. MUST for every business.</td><td class="s tag">Std truth in representation; Ty lock 2</td></tr>
+<tr><td class="k">Software is a product too</td><td>screenshots are real captures of shipped or staged UI at a stated version, placed into device frames with a plane homography (12.9). Never a generated UI, never fake data that implies features that do not exist.</td><td class="s tag">Std truth in representation</td></tr>
+<tr><td class="k">Material physics</td><td>glass, metal, fabric, paper, food and skin show their real specular and texture behavior; texture stays visible at 200 percent crop. Material list: N/A, skin.</td><td class="s tag">Math method</td></tr>
+<tr><td class="k">Color truth</td><td>white balance to the shooting illuminant; a grey reference measures within delta E 2000 of 2.0 from neutral. Product reference colors live in the product A, never in original A.</td><td class="s tag">Std color practice</td></tr>
+<tr><td class="k">Retouch limits</td><td>permitted: dust, small creases under 2 mm apparent, specular taming without clipping, background cleanup. Forbidden: changing shape, adding or removing product text, changing product color, compositing a different product, straightening a crooked label (reshoot), liquify or frequency separation on product surfaces.</td><td class="s tag">Std truth in representation</td></tr>
+<tr><td class="k">Set continuity</td><td>same SKU shown together: height variance under 1.5 percent, identity color delta E 2000 under 2.0, same ratio, ground tone and white balance.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">No CSS color filters</td><td>none on product or identity images in any mode, including dark and high contrast; images carry an embedded ICC profile (sRGB or Display P3, matching §3 gamut policy).</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Acceptance checks</td><td>P1 identity x height floor; P2 identity colors within product A tolerances; P3 grey balance within delta E 2.0; P4 set continuity; P5 no generated pixels in identity zones (pipeline audit); P6 texture visible at 200 percent; P7 identity art upright, unmirrored, unaltered.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">B cascade hint</td><td>Product Overviews (&quot;With image gallery&quot;, &quot;With tiered images&quot;) and Product Lists (&quot;Image overlay&quot;, &quot;Tall images&quot;) set minimum width for the identity floor, uniform ratio and ground tone per row, and no filter props; Media Objects and Logo Clouds use only supplied logo files.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">C cascade hint</td><td>product, category and comparison pages share one color pipeline; OG and social exports keep identity unobstructed.</td><td class="s tag">This doc</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.6 Human presence, hospitality and lifestyle (New, generic)</span></td></tr>
+<tr><td class="k">Purpose</td><td>people fail socially, not technically. These rules make people read as real customers using the real product, and keep the product legible when a person shares the frame.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Hands first</td><td>five fingers visible or plausibly occluded, correct knuckles, clean short nails, no jewelry competing with the product. The hand check runs before any other review; one hand defect rejects the frame.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Correct use gestures</td><td>the product A lists a closed vocabulary of real use gestures (pour, hold, wear, type, cut, open) and the forbidden ones; people hold and use the product as real users do. Vocabulary: N/A, skin (see 12.13).</td><td class="s tag">Brand slot with a universal rule</td></tr>
+<tr><td class="k">Realistic portions and states</td><td>servings, fill levels, wear and mess match real use. Numbers live in the product A.</td><td class="s tag">Craft method</td></tr>
+<tr><td class="k">Gaze directs the eye</td><td>gaze or hand points to the product, the food or the other person, never out of frame; the product sits where the gaze points.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Candor</td><td>at least 70 percent of human frames across a page or gallery are candid; at most one face looks at the lens per frame. A brand may raise the share.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">People count</td><td>hero and place scenes 1 to 3, table or group scenes 2 to 5, never a crowd; background faces under 1/8 frame width count as atmosphere. A brand may lower.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Hospitality and lifestyle moment</td><td>during or just after real use, warm but not performed: mid laugh or listening, mouth relaxed.</td><td class="s tag">Craft</td></tr>
+<tr><td class="k">Regulated categories</td><td>where the product A declares one, people near the regulated product read clearly as above the legal age with margin to two independent reviewers, show no impairment cues, and the regulated act is absent before the gate (12.1).</td><td class="s tag">Std, advertising codes</td></tr>
+<tr><td class="k">Casting over the library</td><td>across any 10 or more published human frames, no single apparent ethnicity above 60 percent, ages span at least three decades, gender presentation not uniform; no frame arranged as a checklist; a casting ledger records it.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Wardrobe restraint</td><td>no logos, slogans or readable text on clothing; no large patterns; wardrobe luminance kept so the product identity stays the brightest readable object. Palette: N/A, skin.</td><td class="s tag">Craft</td></tr>
+<tr><td class="k">Consent</td><td>every identifiable face has a signed release covering web, print and derivatives, filed by asset ID. Real staff appear only with their own release.</td><td class="s tag">Std legal practice</td></tr>
+<tr><td class="k">Synthetic people</td><td>generated people are flagged synthetic in metadata and never presented as staff, founders, customers, reviewers or testimonial authors.</td><td class="s tag">Std, consumer protection practice</td></tr>
+<tr><td class="k">Human traces</td><td>empty scenes may carry one human trace (a cup with a sip taken, a chair pushed back, a book face down), never staged clutter; the trace is named in alt. Share: N/A, skin.</td><td class="s tag">Craft</td></tr>
+<tr><td class="k">Acceptance checks</td><td>H1 hands; H2 correct use gesture; H3 realistic portion or state; H4 gaze toward product or person; H5 candid share; H6 at most one lens gaze; H7 people count; H8 regulated age and no impairment where flagged; H9 library casting ledger; H10 wardrobe; H11 release present; H12 synthetic flag present; H13 product beats every face in sharpness when product is the hero.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">B cascade hint</td><td>Testimonials and Avatars require a release ID for any real face and forbid synthetic faces on named quotes; Hero Sections accept a product anchor so gaze and hand vectors can be checked; Media Objects with people carry the synthetic flag.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">C cascade hint</td><td>about and team pages use only released real people; landing and lifestyle pages are reviewed as a library for casting.</td><td class="s tag">This doc</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.7 Market and persona settings (New, required empty schemas)</span></td></tr>
+<tr><td class="k">Purpose</td><td>which room, surface, landscape, season and props an image uses is chosen by audience and channel, not taste.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Persona table</td><td>required empty schema; every product A fills it before any imagery work. Columns: persona id (string), name, archetype, age band, channel weight. Original A ships the schema only.</td><td class="s tag">Brand slot; required per Ty lock 3</td></tr>
+<tr><td class="k">Setting matrix</td><td>required empty schema per persona; every product A fills it before any imagery work. Columns: persona id, setting, light preset, Kelvin, props allowed, props banned, wardrobe, people maximum, default ratio, default product scale.</td><td class="s tag">Brand slot; required per Ty lock 3</td></tr>
+<tr><td class="k">One persona per image</td><td>tagged before production.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Prop budget</td><td>at most 7 movable objects excluding the product and fixed architecture; reference default 4 to 5.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Category cliché ban list</td><td>every product A lists the stock clichés of its category. List: N/A, skin (see 12.13).</td><td class="s tag">Brand slot with a universal requirement</td></tr>
+<tr><td class="k">Plausible, never identifiable</td><td>settings feel regionally right without reproducing a real facade, sign, landmark or address the business does not own and has not cleared.</td><td class="s tag">Std legal practice</td></tr>
+<tr><td class="k">Season</td><td>one season per frame; seasonal props rotate, architecture does not. Lists: N/A, skin.</td><td class="s tag">Craft</td></tr>
+<tr><td class="k">Channel crop before capture</td><td>the delivery ratio and its secondary crops are chosen before the image is made.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Sky share</td><td>outdoors 8 to 30 percent of frame area, so place shows without a postcard.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Product scale per setting</td><td>homes read right at a smaller size, commercial walls need larger, close framings let the crop do the scaling; a reference is about two thirds of the anchor furniture width. The default scale is stored in each setting row.</td><td class="s tag">Craft, from the room mockup handoff</td></tr>
+<tr><td class="k">Commercial personas count</td><td>B2B buyers (offices, clinics, hotels, restaurants, trade) get their own rows, not a home setting with a different caption.</td><td class="s tag">Craft</td></tr>
+<tr><td class="k">Acceptance checks</td><td>M1 one persona tag; M2 zero banned props; M3 prop count 7 or fewer; M4 Kelvin within 200 K of the persona row; M5 people within the row maximum; M6 no identifiable real place; M7 sky share; M8 one season; M9 delivered ratio is a token and was composed for it; M10 product scale within the row default.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">B cascade hint</td><td>Hero Sections and Product Overviews expose a persona variant that selects the asset; Media Objects and Testimonials pull only assets tagged for that persona.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">C cascade hint</td><td>landing variants per persona (consumer home versus trade) swap imagery by tag; email and social exports inherit the row&#x27;s ratio.</td><td class="s tag">This doc</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.8 Image brief schema (New, generic StageSpec)</span></td></tr>
+<tr><td class="k">Purpose</td><td>the brief is the spec. Judgment is written down before pixels exist, so reviewers check against intent rather than taste, and composites are reproducible. The product A may add fields, never remove required ones.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Scope</td><td>the full StageSpec is required for every generated or composited image. A photograph needs at least the light subset: ratio, alt, provenance, release and QA.</td><td class="s tag">Ty lock 5</td></tr>
+<tr><td class="k">Identity fields</td><td>id (stable across crops and rerenders); class (from the product A asset classes); persona (string id from the 12.7 table); ratio (one of A&#x27;s six ratios); season (from the product A list, or none).</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Subject fields</td><td>primary; secondary; scene prompt body (the empty stage clause is appended by template, never typed); placed assets (kind product, label, logo, screen, card or packaging; geometry plane, cylinder or box; size in mm; anchor in mm; radius and yaw where relevant); trace object; prop count.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Camera fields</td><td>focal mm, height mm, pitch, yaw, distance, solved horizon fraction, aperture, wall angle for room composites.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Light fields</td><td>preset, kind, clock, elevation, azimuth, Kelvin key and fill, fill ratio, source size ratio, relight profile.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Quadrant fields</td><td>anchor fraction, grid line, fill fraction, edge margin (default 0.05, token <code>imagery.edge-margin</code>), facing.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Safe zone fields</td><td>role (text, logo, face, product, call to action) and rectangle in frame fractions, with measured L standard deviation.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Overlay fields</td><td>scrim dark or scrim light, caption, logo; rectangle, solved alpha, gradient start, measured percentile luminance, measured and required contrast.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">People fields</td><td>count (hands only count 0.5), regulated flag, candid flag, gestures, releases, synthetic flag, age reviewers when regulated.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Delivery fields</td><td>crops with their own anchors, alt, decorative flag, ring on or off, AI disclosure, color profile.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Provenance fields</td><td>model id or &quot;camera&quot;, seed, prompt template version, renderer version, scene hash, render hash, product source id, empty stage result, created date, operator.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">QA fields</td><td>checks passed, checks failed, reviewer, thumbnail gate result.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">No spec, no publish</td><td>a generated or composited image without a valid StageSpec does not publish; a photograph without the light subset does not publish.</td><td class="s tag">Ty lock 5</td></tr>
+<tr><td class="k">Cache key</td><td>spec plus seed plus renderer version is the cache key; same key, same pixels.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Acceptance checks</td><td>X12 spec validates and a rerender reproduces the hash; D3 provenance, release and disclosure complete.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">B cascade hint</td><td>Image / media tile and Media Objects take a spec id and expose provenance; Hero Sections read focal point and copy side from the spec rather than CSS guesses.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">C cascade hint</td><td>every composite on a C page links to its spec; CMS filters by persona and class.</td><td class="s tag">This doc</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.9 Generation versus code placement, with measurable craft (New)</span></td></tr>
+<tr><td class="k">Purpose</td><td>the generator may make the scene; code places everything that carries identity, with geometry, light and grain that can be measured and reproduced.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Generate scene, place product</td><td>product, packaging, labels, logos, screens and all text never pass through a generative model: no inpainting, no image to image, no &quot;put the product here&quot; prompt. Only geometry warp, relight, shadow and grain touch them. Verifiable in code and gateway logs. MUST for every business.</td><td class="s tag">Std truth in representation; Ty lock 2</td></tr>
+<tr><td class="k">Photographed in place</td><td>a photograph with the real product in frame is an equal path to a composite; it skips the placement math and keeps every other check.</td><td class="s tag">Ty lock 2</td></tr>
+<tr><td class="k">Empty stage</td><td>the scene prompt ends with a fixed empty stage clause (clear zone, no products, no labels, no logos, no text, no signage, no people unless requested). Scenes that fail the automatic empty zone check are rejected, never cleaned up.</td><td class="s tag">Craft, from the room mockup handoff</td></tr>
+<tr><td class="k">Match before composite</td><td>the scene matches the declared camera within 1 degree of pitch and yaw and 2 percent of scale before anything is placed.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Camera solve</td><td>f px from 12.4; horizon from the vanishing point of the two strongest parallel lines; pitch correction or rejection past 3 percent of H.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Physical scale</td><td>pixels per mm at depth Z = f px divided by Z. Cross check at least two known references (door 2032 mm, table top 750 mm, seat 450 mm, ceiling 2440 mm, a known product); reject if they disagree by more than 5 percent.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Planes get a homography</td><td>screens, cards, boxes face by face, wall art: 3 by 3 from four corners, inverse mapped with 4 by 4 supersampling and a 2.5 times Lanczos prefilter, about 1 px soft edge only at the boundary.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Cylinders get a wrap</td><td>bottles, cans, jars, cups: label span in degrees = label width divided by (2 pi r) times 360; each column maps to theta = (x minus half width) divided by r; projected width scales by cos theta. Never flatten a cylinder label with a homography.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Soft and deformable goods</td><td>apparel, bedding and food are photographed in place, not placed by code.</td><td class="s tag">Craft</td></tr>
+<tr><td class="k">Shadows</td><td>cast shadow length L = object height divided by tan(light elevation), direction from existing scene shadows, never a fixed guess. Contact plus soft shadow layers; a hard shadow only inside direct light. Blur and opacity values N/A, skin (tested reference from the room mockup handoff: tight contact about 45 percent, soft about 22 percent, combined cap 60 percent).</td><td class="s tag">Math; values Craft</td></tr>
+<tr><td class="k">Relight</td><td>from the scene&#x27;s own pixels, in linear light. Shading S = blur(scene, 2 px) divided by surface albedo (albedo from the 97th to 99.5th percentile of the lit band); ambient A = wide blur of S luminance; pattern D = S divided by A, clamped; S k = A times (1 minus k plus k times D), capped at 1.0. Reference k 0.7 for soft light, 0.85 to 0.9 for hard sun, as tested in the handoff prototype only. Placed identity is never brighter than the brightest lit surface in the scene.</td><td class="s tag">Math; parameters Craft</td></tr>
+<tr><td class="k">Grain and sharpness match</td><td>scene noise sigma = 1.4826 times the median absolute deviation of a 2 px high pass on a clear surface; add matching mono grain to placed pixels only.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Text over image contrast, measured</td><td>sample the text box plus 8 px pad; use the 95th percentile luminance under light text (5th under dark text). Required background luminance for light text of luminance Lt: L bg at most (Lt plus 0.05) divided by 4.5 minus 0.05, which is 0.183 for white text. The floor is 4.5:1 for all text on imagery, display sizes included (§4).</td><td class="s tag">Std plus Math</td></tr>
+<tr><td class="k">Scrim solve</td><td>a dark scrim of alpha a over Lp gives L = Lp times (1 minus a), so a = 1 minus 0.183 divided by Lp95 for white text; a light scrim of luminance Ls gives L = Lp times (1 minus a) plus a times Ls. Round alpha up to the next 0.05 (token <code>opacity.image-scrim-step</code>); never below 0.20 when text is present (token <code>opacity.image-scrim-floor</code>). gray-alpha-900 stays the default and the ceiling; if the solved alpha would exceed the ceiling, use a solid background (§4) or another crop or asset. Scrim colors are §8 neutral tokens; a product A may re point them to its own neutral. Under reduced transparency the scrim becomes solid (§15).</td><td class="s tag">Math; floor Craft, peers silent; Ty lock 4; Changed Nov 5, 2026</td></tr>
+<tr><td class="k">Crop math</td><td>target ratio r: if W/H exceeds r, crop width to H times r, else crop height to W divided by r; center on the anchor, then slide the minimum distance to put the anchor on its grid line; subject never within 5 percent of an edge (token <code>imagery.edge-margin</code>).</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Aspect reservation</td><td>padding bottom = 100 divided by r percent: 56.25 for 16:9, 100 for 1:1, 75 for 4:3, 66.67 for 3:2, 61.8 for φ landscape, 161.8 for φ portrait.</td><td class="s tag">Math</td></tr>
+<tr><td class="k">Acceptance checks</td><td>X1 gateway logs show no identity bytes sent to a generative endpoint; X2 empty stage pass logged; X3 placed edges within 2 px of solved lines; X4 scale within 5 percent of two references; X5 cylinder wrap edge width ratio matches cos theta within tolerance; X6 shadow length within 15 percent and azimuth within 10 degrees; X7 no seam, halo or color step at 200 percent; X8 true color variant within delta E 2 of source in neutral light; X9 grain sigma inside the placed area within 20 percent of surround; X10 every text block passes 4.5:1 at the percentile sample with the scrim floor; X11 anchor within 2 percent of its grid line; X12 spec reproduces hash.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">B cascade hint</td><td>Image / media tile renderer contract exposes relight, shadow and grain parameters with A defaults; Hero Sections (&quot;Image behind text&quot;, &quot;Background image overlay&quot;) solve scrim alpha per image instead of a fixed opacity; &quot;Product screenshot panel&quot; uses homography placement only.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">C cascade hint</td><td>every C composite comes from the render pipeline with a spec; text over imagery on landing pages is measured per image at build time.</td><td class="s tag">This doc</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.10 Acceptance QA and failure gallery (New)</span></td></tr>
+<tr><td class="k">Purpose</td><td>every check is binary. An asset publishes only when every applicable check passes. This turns taste into review.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Check families</td><td>C composition, L light, O optics, P product, H human, M market, X math and composite, D delivery, numbered as in 12.2 to 12.11. The product A may add brand checks under the same families; it never removes a universal check.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Review order</td><td>hands first (H1) on any frame with people, then the 96 px thumbnail gate (C10), then everything else.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Generic failure gallery</td><td>product generated by the scene model; mirrored text or logo; overfilled or unrealistic portion; product off its grid line; identity too small or soft; unmeasured light; product shot from standing height (keystone); two equal subjects; textured copy zone; edge kiss; centered person in a landscape hero; flat depth; thumbnail collapse; multi directional shadows; crushed blacks; ring light catch; flat frontal light; Kelvin drift across a set; leaning product; identity face turned to a sliver; color cast on neutral; retouch overreach; bad grip; frozen posed toast or group; extra fingers; committee cast; age ambiguity in regulated categories; costume wardrobe; empty scene with no trace; gaze leaving the frame; hand over the logo; category cliché bingo; persona bleed; tourist postcard sky; over styled table; season collision; floating product (shadow mismatch); wrong scale; flat label on a round product; self lit product in shade; halo or seam; guessed scrim; grain mismatch; generated UI screenshot.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Brand failure gallery</td><td>real product failures with the frame that shows each. N/A, skin (see 12.13).</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Anti slop headline</td><td>§34 gains the imagery headline items: no generated identity art, no mirrored text, no guessed scrim, no category clichés, no synthetic testimonial faces.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Acceptance checks</td><td>qa checks failed is empty; reviewer recorded; failure gallery linked from every image bearing B contract.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">B cascade hint</td><td>Image / media tile, Product Lists and Carousel run C10 at build; every image bearing block&#x27;s docs link the gallery.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">C cascade hint</td><td>C review sessions use the gallery as the reference sheet; nothing ships with a failed check.</td><td class="s tag">This doc</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.11 Delivery (New, absorbs and points back to 12.0)</span></td></tr>
+<tr><td class="k">Purpose</td><td>carry the preserved leaves into production and add what the new subsections need at the edge.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Ratio tokens and reservation</td><td>the six 12.0 ratios with the 12.9 padding table. No other ratio beyond these six. The ratio is chosen before capture or generation (12.7) and reserved with the padding table. A product A selects its subset from these six. 4:3 and 3:2 stay TBD, need peer.</td><td class="s tag">Preserved plus Math</td></tr>
+<tr><td class="k">Image treatment</td><td>12.0 leaf binds. Radius is skinnable through the §30 radius multiplier; a skin may choose 0 (square photography). Natural color: no CSS color filter (grayscale, sepia, hue rotate, tint overlay) on any image that contains the product or identity art, in light, dark or high contrast mode (12.5).</td><td class="s tag">Expanded; Geist + Grok Bot; Std</td></tr>
+<tr><td class="k">Loading and fallback</td><td>reserve width/height to avoid layout shift; Skeleton while loading; fallback to neutral gray-100 block with icon and a short text label (the alt text or asset class name); never an icon alone. Reservation uses the aspect ratio padding table in 12.9.</td><td class="s tag">Changed Nov 5, 2026, Ty lock 4; Geist Skeleton; Std</td></tr>
+<tr><td class="k">Alt text</td><td>12.0 leaf binds. People scenes describe the action, not the person&#x27;s appearance. A scene with a human trace names the trace object. Generated people are never described as real staff, customers or members. Product alt names the product and never adds a claim the copy cannot make (awards, prices, dates).</td><td class="s tag">Expanded; Std</td></tr>
+<tr><td class="k">Responsive art direction</td><td>each asset declares planned crops with their own anchors; breakpoints follow §13 (compact under 601, φ landscape from 961); different crops per breakpoint, never a CSS object fit afterthought that loses the anchor.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Resolution</td><td>source at least 2 times the largest rendered width; product card sources sized so the identity floor holds at 2x.</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Color profile</td><td>sRGB or Display P3 with embedded ICC, matching §3; no untagged images.</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Formats and loading priority</td><td>modern formats with fallbacks, responsive sources; the largest above the fold hero loads eagerly with high fetch priority; everything below the fold lazy loads.</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Provenance metadata</td><td>from the brief, on every delivered image.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Model release metadata</td><td>an image with a real face and no release id does not publish.</td><td class="s tag">Std legal practice</td></tr>
+<tr><td class="k">AI disclosure</td><td>one of none, scene generated with product photographed, fully generated, retouched; exposed in page metadata only by default. A product A may add a visible caption; it is not required.</td><td class="s tag">Std, emerging platform practice; Ty lock 6</td></tr>
+<tr><td class="k">Email subset</td><td>header and thumbnail ratios only, no overlaid type (mail clients cannot run the scrim solve), alt mandatory, fallback as background color.</td><td class="s tag">Std email practice</td></tr>
+<tr><td class="k">Print</td><td>deferred to the product A or C (CMYK proofing against the grey balance target).</td><td class="s tag">Deferred</td></tr>
+<tr><td class="k">Lightbox candidate</td><td class="tbd">for §26 (still TBD, need peer): the full image shows the uncropped source with alt and provenance. Candidate only.</td><td class="s tag">Candidate</td></tr>
+<tr><td class="k">Acceptance checks</td><td>D1 reservation correct and fallback shows icon plus label; D2 alt present or decorative flag; D3 provenance, release, disclosure complete; D4 treatment as declared, no CSS color filter on identity images.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">B cascade hint</td><td>Image / media tile takes ratio, sources per breakpoint with anchors, alt (required), decorative flag, disclosure and provenance props; email variants drop overlay props.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">C cascade hint</td><td>landing heroes set eager loading; category grids lazy load; press and about pages surface disclosure.</td><td class="s tag">This doc</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.12 Illustration, avatar, video, logo boundaries (Expanded)</span></td></tr>
+<tr><td class="k">Purpose</td><td>keep these four as skin slots, as original A intends, while adding guardrails that hold for any brand. Each 12.0 leaf binds word for word; the additions sit on top.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Illustration slot</td><td class="tbd">N/A, skin. Geist reserves decorative covers (Book) for marketing only. Added: SVG with a provenance entry; aligned to the §11 icon grid when used as a mark and scaled in whole multiples; never placed over photography unless the brief declares it; whether illustration may be generated is a skin decision recorded in 12.13.</td><td class="s tag">Geist; additions This doc</td></tr>
+<tr><td class="k">Avatar rules</td><td><code>src</code> first, then <code>letter</code> 1-2 uppercase chars, <code>placeholder</code> only while loading; circle shape; groups via AvatarGroup. Added for photographic avatars: 1:1, face centroid at x 0.5 and y 0.42, face fill about 70 percent, no crop between chin and brow, a release id for every real person, synthetic faces never stand in for a real identity. §24 &quot;Avatar and group&quot; stays as is.</td><td class="s tag">Geist Avatar; additions Craft, peers silent; Ty pick and Std</td></tr>
+<tr><td class="k">Video/media baseline</td><td>no autoplay with sound; captions required; controls keyboard reachable. Added: a transcript SHOULD ship with captions; under reduced motion any motion poster or loop is replaced by its still poster; the poster frame and the first and last frames pass the same composition, light, product truth and human checks as a still; a muted ambient loop, if the skin allows one, is short (reference at most 8 seconds) and never shows a regulated act.</td><td class="s tag">Std; additions Craft, peers silent; Ty pick</td></tr>
+<tr><td class="k">Logo slot</td><td class="tbd">N/A, skin. Geist ships logos separately with light/dark variants (black on light, white on dark). Added: a logo or wordmark in imagery (on packaging or as an overlay) is never generated, redrawn, recolored outside its approved variants or mirrored (§11 RTL list); an overlay logo obeys the same contrast and safe zone math as text (12.9); a logo on photographed packaging is product truth (12.5).</td><td class="s tag">Geist; additions Std</td></tr>
+<tr><td class="k">Acceptance checks</td><td>H11 and H12 for avatars; D checks for video posters; P7 for logos in imagery; illustration provenance present.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">B cascade hint</td><td>Avatars, Testimonials (&quot;With large avatar&quot;), Logo Clouds, Hero Sections (&quot;Background video slot&quot;) and Media Objects.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">C cascade hint</td><td>team pages, testimonial sections, partner logo rows, landing video heroes.</td><td class="s tag">This doc</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">12.13 Imagery brand character slot (Brand slot)</span></td></tr>
+<tr><td class="k">Purpose</td><td>one place where the product A says how its imagery feels, so expression changes while coverage does not. Mirrored into §30 &quot;Required skin inputs&quot;.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Imagery character</td><td class="tbd">N/A, skin. Three to five words, each with a &quot;means / not&quot; pair, like the §1 principle slots.</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Asset classes and default ratios</td><td class="tbd">N/A, skin. A subset of the six 12.0 ratios.</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Light preset list</td><td class="tbd">N/A, skin. Each preset with Kelvin, elevation and contrast.</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Fill ratio default per image type</td><td class="tbd">N/A, skin.</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Persona table and setting matrix rows</td><td class="tbd">N/A, skin. Required before imagery work (12.7).</td><td class="s tag">Brand slot; Ty lock 3</td></tr>
+<tr><td class="k">Category cliché ban list</td><td class="tbd">N/A, skin.</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Use gesture vocabulary and portion or state rules</td><td class="tbd">N/A, skin.</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Regulated category declaration</td><td class="tbd">N/A, skin (or a written &quot;none&quot;).</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Product lock record and identity color tolerances</td><td class="tbd">N/A, skin.</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Wardrobe, season, trace and candid shares</td><td class="tbd">N/A, skin. Wardrobe palette, season lists, human trace share, candid share if above the 70 percent floor.</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Image treatment choice</td><td class="tbd">N/A, skin. Radius via §30, ring on or off.</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Scrim neutral choice</td><td class="tbd">N/A, skin. Default §8 tokens.</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Illustration, logo and avatar policy</td><td class="tbd">N/A, skin. Illustration style and generation policy; logo files; avatar policy (letters only or photographs allowed).</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Brand failure gallery entries</td><td class="tbd">N/A, skin.</td><td class="s tag">Brand slot</td></tr>
+<tr><td class="k">Acceptance checks</td><td>the §38 gate &quot;Imagery checks defined and brand slots filled&quot; passes only when every input above has a value or a written N/A with reason.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">B cascade hint</td><td>§30 &quot;Required skin inputs&quot; lists 12.13 so B blocks cannot render imagery without it.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">C cascade hint</td><td>a C composition cites the 12.13 fill it uses.</td><td class="s tag">This doc</td></tr>
+</table></div>
+<h3 id="s13">13. Layout foundations</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Breakpoints</span></td></tr>
+<tr><td class="k">Breakpoint set</td><td>sm 0-600, md 601-960, lg 961+, xl 1200, 2xl 1400.</td><td class="s tag">Geist CSS 601 / 961 / 1200 / 1400; Cursor dissent: 660 / 900 / 1140</td></tr>
+<tr><td class="k">Size classes</td><td>compact &lt;601, medium 601-960, expanded 961-1399, large 1400+.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Container queries</td><td class="tbd">allowed inside components (cards, sidebars) for layout switches; page grid uses breakpoints.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Grid</span></td></tr>
+<tr><td class="k">Columns</td><td>Geist GridSystem responsive props sm/md/lg; reference 1 / 2 / 3 columns for cards, 12 for page.</td><td class="s tag">Geist Grid</td></tr>
+<tr><td class="k">Gutters and margins</td><td>gap 24, page margin 24; gap-half 12 on compact.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Max content width</td><td>1400 product (<code>--ds-page-width</code>), 48rem docs.</td><td class="s tag">Geist + Grok Bot</td></tr>
+<tr><td class="k">Fibonacci spans</td><td>spans 1, 2, 3, 5, 8, 12 on the same 12 columns; <code>phi</code> 7 / 5, alternate 8 / 4; triples 8+3+1, 8+2+2, 5+5+2, 5+2+5, 2+8+2.</td><td class="s tag">Geist 12 columns; spans Ty pick / math (peers silent)</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Density</span></td></tr>
+<tr><td class="k">Density modes</td><td>compact = Cursor IDE (11-13px text, 22-28 rows, g=10 spacing); default = Geist (14px text, 36 controls); comfortable = Grok Bot docs (16px/1.75, 48rem).</td><td class="s tag">Cursor/Geist/Grok Bot</td></tr>
+<tr><td class="k">Tokens affected</td><td>control height, row height, inset, stack gap, body size, line height. Color, radius, motion do not change.</td><td class="s tag">Cursor+Geist</td></tr>
+<tr><td class="k">Selection rule</td><td>by context: editors/tables/tools = compact; app settings/forms = default; docs/guides/SOPs = comfortable. User override optional.</td><td class="s tag">Cursor</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Platform frame</span></td></tr>
+<tr><td class="k">Safe areas</td><td><code>env(safe-area-inset-*)</code> padding on fixed headers, tab bars, drawers.</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Keyboard avoidance</td><td>drawer/mobile modal inputs scroll into view; Geist &quot;Mobile sheet with inputs&quot; pattern.</td><td class="s tag">Geist Modal</td></tr>
+<tr><td class="k">Orientation</td><td>layouts reflow; no orientation lock.</td><td class="s tag">Std WCAG 1.3.4</td></tr>
+<tr><td class="k">Foldables and split view</td><td class="tbd">treat each pane as its own size class.</td><td class="s tag">TBD, need peer</td></tr>
+</table></div>
+<h3 id="s14">14. Layout primitives</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Box</td><td>div with token-only padding, bg, border, radius props.</td><td class="s tag">Geist Material classes</td></tr>
+<tr><td class="k">Stack</td><td>vertical flex with gap token (Geist <code>&lt;Stack&gt;</code>-style <code>gap</code> prop).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Inline / Cluster</td><td>horizontal flex-wrap with gap token.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Grid</td><td>GridSystem + Grid + GridCell, responsive columns/rows, optional guides.</td><td class="s tag">Geist Grid</td></tr>
+<tr><td class="k">Columns / Split</td><td>two-pane with resizable or fixed ratio; editor + sidebar pattern. Presets <code>phi</code> (default for page and section, 61.8 / 38.2, major on start), <code>half</code>, <code>fixed</code> (editor chrome), <code>resizable</code> (starts 61.8%).</td><td class="s tag">Cursor; φ Ty pick / math (peers silent)</td></tr>
+<tr><td class="k">Center / Container</td><td>max-width page width + page margin, centered.</td><td class="s tag">Geist `--ds-page-width-with-margin`</td></tr>
+<tr><td class="k">Spacer</td><td>avoid; prefer gap. Allowed only for flexible push (<code>margin-left:auto</code>).</td><td class="s tag">Geist gap-first</td></tr>
+<tr><td class="k">Divider</td><td>1px gray-400 hr, horizontal or vertical.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Aspect ratio frame</td><td><code>aspect-ratio</code> wrapper, default 16/9; opt in <code>phi</code> 1.618 / 1 and <code>phi-portrait</code> 1 / 1.618.</td><td class="s tag">Cursor; φ Ty pick / math (peers silent)</td></tr>
+<tr><td class="k">Scroll area</td><td>Geist Scroller (vertical, horizontal, free) with edge fade affordance.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Sticky region</td><td>sticky headers and modal footers (Geist Modal sticky).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Page shell / App frame</td><td>header + optional sidebar + content; Cursor IDE frame = chrome surface around editor surface.</td><td class="s tag">Cursor</td></tr>
+<tr><td class="k">Section</td><td>heading + content block with section stack gap (40/48).</td><td class="s tag">Grok Bot</td></tr>
+<tr><td class="k">Visually hidden</td><td><code>geist-sr-only</code> class (clip, 1px).</td><td class="s tag">Geist Switch</td></tr>
+</table></div>
+<h3 id="s14b">14b. Proportion layer (golden ratio)</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Ratio tokens</td><td><code>--ds-ratio-phi</code> 1.6180339887, inverse 0.6180339887, inverse squared 0.3819660113; helpers 61.8%, 38.2%, <code>1.618fr 1fr</code>. Primitive tier.</td><td class="s tag">Ty pick / math (peers silent)</td></tr>
+<tr><td class="k">Columns / Split</td><td><code>phi</code> default for page and section; major on start; gap 24 (12 compact); minor floor 256; stack under 601, 8 / 4 at md, <code>phi</code> from lg; resizable snaps 38.2, 50, 61.8.</td><td class="s tag">Cursor pattern; values Ty pick / math (peers silent)</td></tr>
+<tr><td class="k">Aspect frames</td><td><code>--ds-aspect-phi</code> 1.618 / 1 (hero, feature, cover, card media); portrait 1 / 1.618; default stays 16/9; cover crop, center focal point.</td><td class="s tag">Ty pick / math (peers silent)</td></tr>
+<tr><td class="k">Fibonacci spans</td><td>1, 2, 3, 5, 8 (plus 12); <code>phi</code> 7 / 5, <code>phi-wide</code> 8 / 4; triples listed above.</td><td class="s tag">Geist grid; spans Ty pick / math (peers silent)</td></tr>
+<tr><td class="k">Vertical</td><td>optional φ frame for hero or cover media; rhythm stays §5 stack tokens.</td><td class="s tag">Ty pick / math (peers silent)</td></tr>
+<tr><td class="k">Out of scope</td><td>atom padding, control gaps, the 4px scale, new column count, type, radius, icon, avatar sizes, brand skin.</td><td class="s tag">Ty pick / math (peers silent)</td></tr>
+<tr><td class="k">Gate</td><td>§5 values unchanged PASS; 12 columns PASS; per value Ty review OPEN.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Focal point</td><td>declared per image (12.2, 12.8); default stays center; a declared focal point from the brief overrides center so crops keep the subject on its grid line.</td><td class="s tag">Craft, peers silent; Ty pick</td></tr>
+</table></div>
+<h3 id="s15">15. Accessibility</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Standard</span></td></tr>
+<tr><td class="k">Target level</td><td>WCAG 2.2 AA minimum.</td><td class="s tag">Std; Geist &quot;high contrast, accessible color system&quot;</td></tr>
+<tr><td class="k">Platform mapping</td><td>iOS HIG, Android Material accessibility for native ports.</td><td class="s tag">Std</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Contrast</span></td></tr>
+<tr><td class="k">Text</td><td>4.5:1 normal, 3:1 large (24px+ or 18.66px bold). Geist 900/1000 steps designed to pass on 100/200.</td><td class="s tag">Geist+Std</td></tr>
+<tr><td class="k">Non-text</td><td>3:1 for UI borders that carry meaning, icons, focus ring.</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Verification</td><td class="tbd">compute with APCA/WCAG checker in CI on every fg/bg pair from tokens.json.</td><td class="s tag">TBD, need peer tool</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Focus</span></td></tr>
+<tr><td class="k">Indicator</td><td><code>--ds-focus-ring</code> (2px bg gap + 2px blue-700/blue-900) on :focus-visible; never remove outline without replacement.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Focus order</td><td>DOM order = visual order; Tab moves between fields, arrows within groups.</td><td class="s tag">Geist Radio/Tabs</td></tr>
+<tr><td class="k">Trap and return</td><td>overlays trap focus and return it to the trigger on close; after errors keep focus inside.</td><td class="s tag">Geist Modal/Sheet/Drawer</td></tr>
+<tr><td class="k">Skip links</td><td>&quot;Skip to content&quot; first focusable element.</td><td class="s tag">Std</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Targets</span></td></tr>
+<tr><td class="k">Minimum target</td><td>24x24 CSS px (WCAG 2.2 2.5.8); 44pt iOS, 48dp Android. Geist small control 32 passes.</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Spacing</td><td>8px between adjacent targets under 44px.</td><td class="s tag">Std</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Input modes</span></td></tr>
+<tr><td class="k">Keyboard map</td><td>per Geist component: Menu (arrows, Home/End, typeahead), Tabs (Left/Right), Modal (Esc), Combobox (arrows, Enter selects), Calendar (arrows, Shift+arrow week, PgUp/PgDn month).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Pointer/touch parity</td><td>no hover-only actions; context menu items mirrored in a visible Menu.</td><td class="s tag">Geist ContextMenu</td></tr>
+<tr><td class="k">Switch/voice control</td><td>visible labels match accessible names so &quot;click Deploy Project&quot; works.</td><td class="s tag">Geist &quot;don&#x27;t override visible label&quot;</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Screen readers</span></td></tr>
+<tr><td class="k">Roles, names, states</td><td>native elements first; <code>aria-expanded</code>, <code>aria-controls</code>, <code>aria-busy</code>, <code>role=progressbar</code> with value attrs.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Live regions</td><td>toasts and async errors <code>aria-live=&quot;polite&quot;</code>; <code>assertive</code> only for blocking errors.</td><td class="s tag">Geist Toast/Error</td></tr>
+<tr><td class="k">Landmarks and headings</td><td>header, nav, main, footer; one h1; headings in order.</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Testing matrix</td><td>VoiceOver macOS/iOS, TalkBack, NVDA + Firefox, JAWS + Chrome.</td><td class="s tag">Std</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">User preferences</span></td></tr>
+<tr><td class="k">Reduced motion</td><td>fade-only alternative (section 10).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Reduced transparency</td><td class="tbd">replace gray-alpha surfaces and blur with solid gray steps.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Increased contrast</td><td class="tbd">section 3 HC mapping.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Text scaling 200%</td><td>rem units, wrapping labels allowed at 200%.</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Color blindness</td><td>never color-only; simulate deuteranopia/protanopia on status sets.</td><td class="s tag">Geist</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Cognitive</span></td></tr>
+<tr><td class="k">Timeouts</td><td>warn before session expiry with option to extend.</td><td class="s tag">Std WCAG 2.2.1</td></tr>
+<tr><td class="k">Consistent nav and help</td><td>same position for nav, feedback, help on every page.</td><td class="s tag">Geist Feedback at page end</td></tr>
+<tr><td class="k">Error prevention</td><td>destructive/financial actions confirm in Modal, default focus Cancel, typed confirmation for high stakes.</td><td class="s tag">Geist Modal</td></tr>
+</table></div>
+<h3 id="s16">16. Content and UI writing</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Voice and tone slots</td><td class="tbd">precise, calm, direct, technically literate (reference); product voice: N/A, skin.</td><td class="s tag">Geist design.md</td></tr>
+<tr><td class="k">Capitalization</td><td>Title Case for buttons, labels, titles, tabs, menu items, column headers; sentence case for body, helper, toasts, tooltips, placeholders.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Punctuation</td><td>single-sentence toasts/tooltips no period; helper and validation end with period; ellipsis only when the item opens a follow-up dialog (&quot;Rename...&quot;); no em dashes (house rule); curly quotes around typed queries.</td><td class="s tag">Geist + Grok Bot</td></tr>
+<tr><td class="k">Action labels</td><td>Verb + Noun (&quot;Deploy Project&quot;, &quot;Invite Member&quot;); never OK, Confirm, Submit, Get Started.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Error formula</td><td>what happened + what to do (&quot;Couldn&#x27;t verify domain. Try again.&quot;); Couldn&#x27;t/Can&#x27;t = user state, Failed to = system; no Oops/Sorry/Unable to.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Empty state formula</td><td>Title Case title naming the state + sentence that names the next action + one primary CTA. (&quot;No Logs Match Your Filter&quot; / &quot;Clear the filter to see all logs.&quot;)</td><td class="s tag">Geist Empty State</td></tr>
+<tr><td class="k">Destructive formula</td><td>title = Verb + Noun statement (not question); body = consequence first; close with &quot;This cannot be undone.&quot;; button repeats title verb; Cancel stays &quot;Cancel&quot;.</td><td class="s tag">Geist Modal</td></tr>
+<tr><td class="k">Success/toast formula</td><td>{Noun} {past participle}: &quot;Project deleted&quot;; never &quot;successfully&quot;.</td><td class="s tag">Geist Toast</td></tr>
+<tr><td class="k">Placeholder and helper</td><td>placeholder = example value (&quot;example.com&quot;), never instructions; helper = one sentence with period, linked by aria-describedby.</td><td class="s tag">Geist Input</td></tr>
+<tr><td class="k">Numbers/dates/currency</td><td>relative time &quot;2m ago&quot; under 7 days, then &quot;Mar 14, 2026&quot;; ranges with en dash &quot;21-40 of 142&quot;; user locale and timezone, never silent UTC.</td><td class="s tag">Geist Table/Calendar</td></tr>
+<tr><td class="k">Units and abbreviations</td><td>unit in the label not the value (&quot;Uptime&quot; label, value 99.97%); canonical terms (Production not Prod).</td><td class="s tag">Geist Gauge/Badge</td></tr>
+<tr><td class="k">Inclusive language</td><td class="tbd">allowlist/denylist, primary/replica; no ableist idioms.</td><td class="s tag">TBD, need peer; Std practice</td></tr>
+<tr><td class="k">Length budgets</td><td>badge 1-2 words; tab 1-2 words; menu section 1-2 words; toast 1 sentence (&lt;= 6 words for error toast headline); modal body 1-3 sentences.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Banned words</td><td>Oops, Sorry, Unfortunately, Unable to, successfully, Please (in validation), Heads up, FYI, Get Started, OK, Submit, Unlock, Elevate, Seamless.</td><td class="s tag">Geist + outline 34</td></tr>
+<tr><td class="k">Terminology glossary</td><td class="tbd">N/A, skin (product nouns). Rule: match canonical API/log term.</td><td class="s tag">Geist</td></tr>
+</table></div>
+<h3 id="s17">17. Internationalization and localization</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Text expansion</td><td>allow +30% (up to +200% for strings under 10 chars); never fixed-width labels.</td><td class="s tag">Std; Geist Switch &quot;pad for widest label&quot;</td></tr>
+<tr><td class="k">RTL mirroring</td><td>use logical properties (margin-inline, inset-inline); mirror directional icons (section 11).</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Locale formatting</td><td>Intl.DateTimeFormat, NumberFormat, PluralRules; Kbd swaps Cmd for Ctrl by OS.</td><td class="s tag">Geist Kbd + Std</td></tr>
+<tr><td class="k">Script fallback</td><td class="tbd">Geist covers Latin + Cyrillic only; CJK/Arabic/Devanagari fall back to Noto Sans families.</td><td class="s tag">Geist font.md; fallback choice TBD, need peer</td></tr>
+<tr><td class="k">Externalization</td><td>all UI strings in message catalogs; theme labels stay translatable via keys.</td><td class="s tag">Geist Theme Switcher</td></tr>
+<tr><td class="k">Pseudo-localization</td><td class="tbd">run accented + 40% expanded pseudo-locale in CI screenshots.</td><td class="s tag">TBD, need peer</td></tr>
+</table></div>
+<h3 id="s18">18. Platform adaptation</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Web</td><td>hover states on pointer devices only (<code>@media (hover:hover)</code>); <code>cursor:pointer</code> on actionable; <code>cursor:not-allowed</code> on disabled; native scrollbars + Scroller fades.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">iOS</td><td>native nav stack, sheets with detents, swipe back, haptics on commit.</td><td class="s tag">Std; peers web only</td></tr>
+<tr><td class="k">Android</td><td>system back closes overlays first; edge-to-edge; ripple optional (Geist uses step swap instead).</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Desktop</td><td>menu bar + Cmd/Ctrl shortcuts; command palette Cmd+K; context menus via Shift+F10.</td><td class="s tag">Cursor + Geist</td></tr>
+<tr><td class="k">Native vs custom</td><td>use native element (button, select, input) unless the system needs search/filter (Combobox) or rich content (Choicebox).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Haptics map</td><td class="tbd">success = light impact, warning = notification warning, error = notification error; none on web.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Sound</td><td class="tbd">none by default; never sole feedback.</td><td class="s tag">TBD, need peer</td></tr>
+</table></div>
+<h3 id="s19">19. Component spec template (applies to every component)</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Purpose and when to use / not</td><td>&quot;When to use&quot; block naming the alternative component for each wrong use.</td><td class="s tag">Geist Best Practices</td></tr>
+<tr><td class="k">Anatomy</td><td>named parts (root, prefix, label, suffix, helper, error). Geist uses prefix/suffix slots.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Variants list</td><td><code>variant</code> prop values (Button: default, secondary, tertiary, error, warning).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Sizes list</td><td>small 32 / medium 36 (default) / large 40; some components add tiny.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">State matrix</td><td>default, hover, focus-visible, pressed (active), selected, disabled, loading, error, read-only, dragged.</td><td class="s tag">Outline; Geist covers all but dragged</td></tr>
+<tr><td class="k">Coverage grid</td><td class="tbd">every variant x state x (light, dark) rendered in stories; HC TBD.</td><td class="s tag">Geist docs show variants x sizes comparison</td></tr>
+<tr><td class="k">Token mapping table</td><td>part -&gt; token (bg -&gt; <code>--themed-bg</code>, text -&gt; <code>--themed-fg</code>, border -&gt; <code>--themed-border</code>).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Behavior rules</td><td>&quot;Behavior&quot; block (open on click, close on Esc, etc.).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Keyboard and SR spec</td><td>&quot;Accessibility&quot; block.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Responsive behavior</td><td>e.g. Combobox becomes dialog on mobile inside Modal; Drawer only on small viewports.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Content rules</td><td>&quot;Content&quot; block with casing, length, examples.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Do / don&#x27;t pairs</td><td>Geist &quot;Do / Avoid&quot; image pairs.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Code API</td><td>props, slots, events, React import from <code>@vercel/geistcn/components</code>.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Related components</td><td>&quot;use X instead&quot; links inside When to use.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Status</td><td>alpha, beta, stable, deprecated + semver.</td><td class="s tag">Geist lifecycle badges</td></tr>
+</table></div>
+<h3 id="s20">20. Components: actions</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Button</td><td>mutate state (Link navigates) | default (primary, gray-1000 bg), secondary, tertiary, error (destructive), warning; ghost = tertiary; shapes square/circle/rounded | hover, focus ring, active, disabled (gray-100/700), loading prop keeps focus | button-14, height 32/36/40, radius 6, 150ms.</td><td class="s tag">Geist Button</td></tr>
+<tr><td class="k">Icon button</td><td>Button <code>svgOnly</code> + <code>shape=&quot;square&quot;|&quot;circle&quot;</code> + required aria-label naming action + target | same variants | same states + Tooltip | 16 icon, square = height.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Button group / segmented actions</td><td>related actions row; 2-3 view options use Switch (segmented) | secondary buttons joined | per-button | radius 6 outer only.</td><td class="s tag">Geist Switch/Menu</td></tr>
+<tr><td class="k">Split button</td><td>one default action + 1-4 close variants in menu; primary mirrored as first item | default or secondary only (destructive blocked) | menu states | menuButtonLabel aria-label.</td><td class="s tag">Geist Split Button</td></tr>
+<tr><td class="k">Floating action button</td><td class="tbd">N/A on web; mobile-only via native.</td><td class="s tag">Geist silent, web product has none; TBD, need peer for native</td></tr>
+<tr><td class="k">Link</td><td>navigation; ButtonLink when it must look like a button | inline (underline 1px), standalone | hover underline darkens (Grok Bot .2 -&gt; .5), focus ring | gray-1000 text.</td><td class="s tag">Geist ButtonLink + Grok Bot link</td></tr>
+<tr><td class="k">Toggle button</td><td>boolean setting that applies immediately = Toggle (switch-style) | small/medium/large, custom color | checked, disabled + tooltip | label = children, Title Case noun phrase true when ON.</td><td class="s tag">Geist Toggle</td></tr>
+<tr><td class="k">Menu button</td><td>trigger that opens Menu on click (not hover) | with chevron, custom trigger | expanded/collapsed | aria-expanded, return focus.</td><td class="s tag">Geist Menu</td></tr>
+<tr><td class="k">Copy-to-clipboard</td><td>Snippet (shell command) or icon button with copied state checkmark | prompt on/off, inverted, success/warning/error | idle, copied | Copy aria-label names target.</td><td class="s tag">Geist Snippet</td></tr>
+</table></div>
+<h3 id="s21">21. Components: inputs and selection</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Text field</td><td>Input, single-line | small/medium/large, prefix/suffix, rounded | default, hover border gray-500, focus ring, error (red), disabled | height 32/36/40, label-14, radius 6, border gray-alpha-400.</td><td class="s tag">Geist Input</td></tr>
+<tr><td class="k">Text area</td><td>Textarea, multi-line | small/medium/large, rows | default, error, disabled, read-only | copy-14, generous rows.</td><td class="s tag">Geist Textarea</td></tr>
+<tr><td class="k">Search field</td><td>Input <code>search</code> variant with scoped placeholder (&quot;Search projects&quot;) and optional Cmd+K Kbd suffix.</td><td class="s tag">Geist Input</td></tr>
+<tr><td class="k">Number / stepper</td><td class="tbd">Input type number with tabular nums + optional slider pairing; stepper buttons TBD, need peer.</td><td class="s tag">Geist Slider note</td></tr>
+<tr><td class="k">Password field</td><td class="tbd">Input type password + suffix reveal icon button (aria-label &quot;Show password&quot;).</td><td class="s tag">Geist Input suffix; reveal pattern TBD, need peer</td></tr>
+<tr><td class="k">OTP / code input</td><td>single Input with <code>autocomplete=&quot;one-time-code&quot;</code>, validation &quot;Code must be 6 digits.&quot;</td><td class="s tag">Geist Input content</td></tr>
+<tr><td class="k">Select / dropdown</td><td>Select for &lt; ~10 fixed options | small/large, prefix/suffix | error, disabled, required | placeholder &quot;Select a framework&quot;.</td><td class="s tag">Geist Select</td></tr>
+<tr><td class="k">Combobox</td><td>type-to-filter known list | clearable, prefix/suffix, sizes | loading, empty &quot;No {items} match {query}&quot;, error, disabled | dialog on mobile in Modal.</td><td class="s tag">Geist Combobox</td></tr>
+<tr><td class="k">Multi-select / tag input</td><td>MultiSelect when more than one value | chips removable | same as Combobox.</td><td class="s tag">Geist Combobox/Select note</td></tr>
+<tr><td class="k">Checkbox</td><td>multi-select and acknowledgments | default, indeterminate (visual only) | checked, disabled + tooltip, error on submit | fieldset + legend.</td><td class="s tag">Geist Checkbox</td></tr>
+<tr><td class="k">Radio group</td><td>2-6 exclusive options; pre-select safest default | default, headless, standalone | disabled skipped by arrows, required on group.</td><td class="s tag">Geist Radio</td></tr>
+<tr><td class="k">Switch</td><td>Geist &quot;Toggle&quot; is the on/off switch; Geist &quot;Switch&quot; is the segmented control (naming dissent: keep Geist names in code, outline name in docs).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Slider / range</td><td>ranged numeric where proximity matters; pair with Input for exact | single, range with inputs | disabled, commit on release | tabular live value.</td><td class="s tag">Geist Slider</td></tr>
+<tr><td class="k">Segmented control</td><td>Geist Switch, 2-3 options, radio semantics, sizes small/large | checked, disabled, icon + Tooltip | pad for widest label.</td><td class="s tag">Geist Switch</td></tr>
+<tr><td class="k">Chip</td><td>filter chip = Badge <code>pill</code> or small Button; input chip = MultiSelect token; choice chip = Switch.</td><td class="s tag">Geist Badge</td></tr>
+<tr><td class="k">Date picker</td><td>Calendar single date with min/max, locale and timezone.</td><td class="s tag">Geist Calendar</td></tr>
+<tr><td class="k">Time picker</td><td class="tbd">Input with locale format + timezone label.</td><td class="s tag">TBD, need peer; Geist has none</td></tr>
+<tr><td class="k">Date range picker</td><td>Calendar with presets (&quot;Last 7 Days&quot;), horizontal or stacked, min/max to data window.</td><td class="s tag">Geist Calendar</td></tr>
+<tr><td class="k">Color picker</td><td class="tbd">N/A in fundamentals; Book uses token-only color prop.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">File upload / dropzone</td><td class="tbd">dashed gray-400 zone, hover gray-500, focusable button inside.</td><td class="s tag">TBD, need peer; Geist has none</td></tr>
+<tr><td class="k">Rating</td><td class="tbd">Feedback emoji row for page feedback only; star rating N/A.</td><td class="s tag">Geist Feedback</td></tr>
+<tr><td class="k">Field wrapper</td><td>label (Title Case noun, needs id), helper (aria-describedby), error replaces helper, counter, required.</td><td class="s tag">Geist Input/Textarea</td></tr>
+<tr><td class="k">Fieldset / form group</td><td>fieldset + legend, Title Case noun, no colon.</td><td class="s tag">Geist Checkbox/Radio</td></tr>
+</table></div>
+<h3 id="s22">22. Components: navigation</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Top app bar / header</td><td class="tbd">page width container, 64px tall, logo slot (skin), nav, actions; sticky with border-bottom gray-400.</td><td class="s tag">Geist vercel.com header; height TBD, need peer</td></tr>
+<tr><td class="k">Bottom navigation / tab bar</td><td class="tbd">mobile only, 3-5 destinations, icon + label.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Navigation rail</td><td>compact vertical icon bar (Cursor activity bar).</td><td class="s tag">Cursor</td></tr>
+<tr><td class="k">Sidebar / drawer navigation</td><td>left sidebar with sections; collapses to drawer &lt; 601px.</td><td class="s tag">Cursor docs + Geist breakpoints</td></tr>
+<tr><td class="k">Tabs</td><td>sibling views on one page, 5-7 desktop / 3-4 mobile, URL reflects tab | default, secondary, with icons | disabled + tooltip, focus ring kept.</td><td class="s tag">Geist Tabs</td></tr>
+<tr><td class="k">Breadcrumbs</td><td class="tbd">slash-separated path in header, last item current page (aria-current).</td><td class="s tag">Geist vercel.com header; spec TBD, need peer</td></tr>
+<tr><td class="k">Pagination</td><td>sibling page links (Previous/Next + destination title); numbered pager &quot;Page 2 of 7&quot;.</td><td class="s tag">Geist Pagination/Table</td></tr>
+<tr><td class="k">Stepper / progress steps</td><td>Progress with stops, labeled &quot;Step 2 of 4 - Building&quot;.</td><td class="s tag">Geist Progress</td></tr>
+<tr><td class="k">Back button</td><td class="tbd">browser back is truth; in-app back returns to parent list preserving scroll and filters.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Command palette</td><td>CommandMenu, Cmd+K / Ctrl+K, pages for scopes, recents when empty, Kbd per item.</td><td class="s tag">Geist CommandMenu + Cursor</td></tr>
+<tr><td class="k">Anchor / TOC</td><td>right-rail on-this-page list in docs, current section highlighted.</td><td class="s tag">Cursor docs</td></tr>
+<tr><td class="k">Skip link</td><td>first focusable, visible on focus.</td><td class="s tag">Std</td></tr>
+</table></div>
+<h3 id="s23">23. Components: containment and surfaces</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Card</td><td>material-small/medium, radius 12 (product) or 16 (docs), padding 24, 1px border ring; clickable card = whole surface is the link.</td><td class="s tag">Geist + Grok Bot</td></tr>
+<tr><td class="k">List and list item</td><td>Entity row: identifier (avatar/icon + Title Case label + secondary meta) + max 2 controls, rest in dots menu.</td><td class="s tag">Geist Entity</td></tr>
+<tr><td class="k">Accordion / disclosure</td><td>Collapse / CollapseGroup, closed by default, one level deep, animated.</td><td class="s tag">Geist Collapse</td></tr>
+<tr><td class="k">Panel / section container</td><td>Material base surface with heading + body.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Callout / inline message</td><td>Note (error, warning, success, secondary, violet, cyan; small) with optional single NoteAction. Guide surface: .callout card.</td><td class="s tag">Geist Note + Grok Bot</td></tr>
+<tr><td class="k">Carousel</td><td>Scroller horizontal with buttons labeled with direction + content.</td><td class="s tag">Geist Scroller</td></tr>
+<tr><td class="k">Resizable panes</td><td class="tbd">editor/sidebar split with drag handle, keyboard resizable (arrow keys).</td><td class="s tag">Cursor; keyboard spec TBD, need peer</td></tr>
+</table></div>
+<h3 id="s24">24. Components: data display</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Table</td><td>rows of same shape, sortable header buttons, tabular nums, empty state outside table, sticky header, row actions via dots menu; basic, striped, bordered, interactive, virtualized. Density: compact rows 32-36.</td><td class="s tag">Geist Table</td></tr>
+<tr><td class="k">Data grid</td><td class="tbd">virtualized Table; inline edit via Inline edit pattern (27).</td><td class="s tag">Geist virtualized table; editing TBD, need peer</td></tr>
+<tr><td class="k">Description list</td><td>Description (dl/dt/dd), Title Case key, single value, optional tooltip.</td><td class="s tag">Geist Description</td></tr>
+<tr><td class="k">Stat / metric tile</td><td class="tbd">label + big number (tabular) + delta; Gauge for ratio vs max.</td><td class="s tag">Geist Gauge; tile TBD, need peer</td></tr>
+<tr><td class="k">Badge</td><td>short metadata; gray, blue, red, amber, green, teal, purple, pink, inverted, -subtle; sm/md/lg; pill. Static, no onClick.</td><td class="s tag">Geist Badge</td></tr>
+<tr><td class="k">Tag / label</td><td>Badge pill.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Avatar and group</td><td>sizes 14-90; AvatarGroup handles overlap and a single label.</td><td class="s tag">Geist Avatar</td></tr>
+<tr><td class="k">Tooltip-backed truncation</td><td>single-line ellipsis + Tooltip with full text on hover/focus.</td><td class="s tag">Geist Description ellipsis</td></tr>
+<tr><td class="k">Timeline / activity feed</td><td class="tbd">Entity rows with relative time, newest first.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Tree view</td><td class="tbd">file tree in Cursor explorer: 22px rows, indent 8-12, chevrons, arrow-key nav.</td><td class="s tag">Cursor; numbers observed, TBD exact</td></tr>
+<tr><td class="k">Code block</td><td>CodeBlock with language, filename, highlighted/added/removed lines, line numbers; inline = copy-13-mono.</td><td class="s tag">Geist Code Block</td></tr>
+<tr><td class="k">Charts baseline</td><td class="tbd">axes gray-400, labels label-12 gray-900, tooltip material-tooltip, empty = Empty State, color roles section 3.</td><td class="s tag">Geist; chart spec TBD, need peer</td></tr>
+<tr><td class="k">Image / media tile</td><td>radius 12, 1px ring, Skeleton squared while loading.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Kbd</td><td>one key per element, modifiers as props, small in dense rows, punctuation outside.</td><td class="s tag">Geist Keyboard Input</td></tr>
+<tr><td class="k">Image / media tile imagery</td><td>inherits the 12.2 thumbnail gate (96 px, the §5 24x step) and 12.11 delivery.</td><td class="s tag">This doc</td></tr>
+</table></div>
+<h3 id="s25">25. Components: feedback and status</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Toast</td><td>non-blocking ack of user action; default, success, warning, error, with action/undo, preserve | auto-dismiss, undo 5-10s | aria-live polite.</td><td class="s tag">Geist Toast</td></tr>
+<tr><td class="k">Banner</td><td>Project Banner, page/project-wide state needing resolution; error, warning, success, gray; non-dismissible; one at a time; CTA required.</td><td class="s tag">Geist Project Banner</td></tr>
+<tr><td class="k">Inline alert</td><td>Note, persistent until state changes, no dismiss.</td><td class="s tag">Geist Note</td></tr>
+<tr><td class="k">Progress bar</td><td>determinate with max + stops; types success/warning/error/secondary; indeterminate = Spinner/LoadingDots.</td><td class="s tag">Geist Progress</td></tr>
+<tr><td class="k">Spinner</td><td>1-3s single action waits; sizes sm..4xl; mount on start; button uses loading prop.</td><td class="s tag">Geist Spinner</td></tr>
+<tr><td class="k">Skeleton</td><td>known layouts; pill/rounded/squared; match final size; no animation option.</td><td class="s tag">Geist Skeleton</td></tr>
+<tr><td class="k">Status dot</td><td>deployment lifecycle states QUEUED, BUILDING, READY, ERROR, CANCELED, DELETED; animates while building. Generic statuses use Badge.</td><td class="s tag">Geist Status Dot</td></tr>
+<tr><td class="k">Notification badge / counter</td><td>small Badge in tab/menu slot; drop at zero; never inside tab title text.</td><td class="s tag">Geist Tabs</td></tr>
+<tr><td class="k">Inline validation</td><td>Input <code>error</code> string under field, replaces helper; on blur.</td><td class="s tag">Geist Input</td></tr>
+</table></div>
+<h3 id="s26">26. Components: overlays</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Modal dialog</td><td>blocking decision; sticky header/footer, inset, single button; radius 12, material-modal; scale .96 300ms.</td><td class="s tag">Geist Modal</td></tr>
+<tr><td class="k">Alert / confirmation dialog</td><td>Modal with destructive primary, default focus Cancel, typed match for high stakes.</td><td class="s tag">Geist Modal</td></tr>
+<tr><td class="k">Bottom sheet</td><td>Drawer, small viewports only, swipe-down + tap-outside dismiss, custom height.</td><td class="s tag">Geist Drawer</td></tr>
+<tr><td class="k">Side sheet</td><td>Sheet, modal=false default, side from trigger location, explicit close, Esc.</td><td class="s tag">Geist Sheet</td></tr>
+<tr><td class="k">Popover</td><td>menu material, radius 12, padding 6, row 0 8 radius 6, 200ms swift.</td><td class="s tag">Geist popover tokens</td></tr>
+<tr><td class="k">Tooltip</td><td>explains why, ~150ms delay, hover + focus, Esc closes; types error/success/warning/violet; only floating element with stem; radius 6.</td><td class="s tag">Geist Tooltip</td></tr>
+<tr><td class="k">Dropdown menu</td><td>Menu, click to open, ~10 items max, sections, locked items, destructive last.</td><td class="s tag">Geist Menu</td></tr>
+<tr><td class="k">Context menu</td><td>right-click/long-press, mirrored elsewhere, Shift+F10.</td><td class="s tag">Geist Context Menu</td></tr>
+<tr><td class="k">Action sheet</td><td>Drawer with list of actions on mobile.</td><td class="s tag">Geist Drawer</td></tr>
+<tr><td class="k">Full-screen overlay</td><td>material-fullscreen radius 16, used for focused tasks.</td><td class="s tag">Geist materials</td></tr>
+<tr><td class="k">Lightbox</td><td class="tbd">TBD, need peer.</td><td class="s tag"></td></tr>
+<tr><td class="k">Overlay rules</td><td>dismiss (Esc always; outside-click for non-destructive), focus trap + return, body scroll lock restored same tick, z per section 9, scrim .8.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Lightbox candidate</td><td>full image shows the uncropped source with alt and provenance per 12.11. Candidate only; Lightbox stays TBD, need peer.</td><td class="s tag">Candidate</td></tr>
+</table></div>
+<h3 id="s27">27. Patterns: forms</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Form layout</td><td class="tbd">single column, label above field, max width ~ 30rem for forms; actions bottom-left (primary) with Cancel.</td><td class="s tag">Geist forms; width TBD, need peer</td></tr>
+<tr><td class="k">Required vs optional</td><td class="tbd">mark required on the group/field; Radio required on group. Optional marker &quot;(Optional)&quot; when most fields are required.</td><td class="s tag">Geist Radio; marker TBD, need peer</td></tr>
+<tr><td class="k">Validation timing</td><td>on blur for fields; on submit for acknowledgments; never on every keystroke.</td><td class="s tag">Geist Input/Checkbox</td></tr>
+<tr><td class="k">Error summary and linking</td><td>inline error per field; summary at top for long forms linking to fields.</td><td class="s tag">Geist inline; summary Std</td></tr>
+<tr><td class="k">Multi-step forms</td><td>Progress with labeled stops; save per step.</td><td class="s tag">Geist Progress</td></tr>
+<tr><td class="k">Autosave vs explicit</td><td>Toggles persist on change + toast; grouped settings use explicit Save footer.</td><td class="s tag">Geist Toggle</td></tr>
+<tr><td class="k">Unsaved changes guard</td><td>block dismiss of Modal/Drawer with dirty input; confirm on route leave.</td><td class="s tag">Geist Modal/Drawer</td></tr>
+<tr><td class="k">Input masks</td><td>avoid masks; trim whitespace on submit; format on blur.</td><td class="s tag">Geist Input</td></tr>
+<tr><td class="k">Autofill attributes</td><td>correct <code>autocomplete</code> tokens (email, one-time-code, new-password).</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Submit states</td><td>loading prop keeps focus; disable only when impossible, with tooltip why.</td><td class="s tag">Geist Button</td></tr>
+<tr><td class="k">Inline edit</td><td class="tbd">click value -&gt; Input in place, Enter save, Esc cancel, toast on save.</td><td class="s tag">TBD, need peer</td></tr>
+</table></div>
+<h3 id="s28">28. Patterns: system states</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Empty states</span></td></tr>
+<tr><td class="k">First use</td><td>blank slate with next action (&quot;Push to your Git repository to create your first one.&quot;) + 1 primary CTA.</td><td class="s tag">Geist Empty State</td></tr>
+<tr><td class="k">No results</td><td>&quot;No logs match “{query}”. Clear the filter to see all logs.&quot;</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">User cleared</td><td>&quot;cleared&quot; variant for completed work.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">No permission</td><td>full-page when route denied; Note when one tile gated; &quot;{Feature value} with the {Plan} plan.&quot;</td><td class="s tag">Geist</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Error states</span></td></tr>
+<tr><td class="k">Field error</td><td>Input error string, sentence with period.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Inline section error</td><td>Error block with Try Again + request ID in collapsed details.</td><td class="s tag">Geist Error</td></tr>
+<tr><td class="k">Full-page error</td><td>route boundary &quot;Couldn&#x27;t Load Page&quot;, focus Try Again.</td><td class="s tag">Geist Error</td></tr>
+<tr><td class="k">Network / offline</td><td>Note or Banner naming impact + Retry; no auto-retry loops.</td><td class="s tag">Geist Error behavior</td></tr>
+<tr><td class="k">Partial failure</td><td>toasts.warning + persistent row with detail.</td><td class="s tag">Geist Toast</td></tr>
+<tr><td class="k">Retry rules</td><td>concrete action (Try Again if safe, named verb otherwise); no silent background retry.</td><td class="s tag">Geist Error</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Loading states</span></td></tr>
+<tr><td class="k">Skeleton vs spinner</td><td>Skeleton for known layout, Spinner for single action 1-3s, LoadingDots inline copy, Progress when total known.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Progressive loading</td><td>render shell first, Skeleton rows, swap per region with aria-busy.</td><td class="s tag">Geist Skeleton</td></tr>
+<tr><td class="k">Optimistic updates</td><td class="tbd">apply instantly, roll back with error toast &quot;Couldn&#x27;t save settings. Try again.&quot;</td><td class="s tag">Geist Toast copy; optimistic TBD, need peer</td></tr>
+<tr><td class="k">Long-running tasks</td><td>name the work (&quot;Building deployment...&quot;), Progress with stops, notify on completion.</td><td class="s tag">Geist Progress</td></tr>
+<tr><td class="k">Thresholds</td><td>under 100ms instant; 100ms-1s no indicator or spinner after delay; 1-3s spinner + label; over 3s progress or skeleton.</td><td class="s tag">Geist ~1s and 1-3s guidance; 100ms Std</td></tr>
+<tr><td colspan="3"><span class="step-label" style="margin:0.5rem 0 0">Success states</span></td></tr>
+<tr><td class="k">Confirmation feedback</td><td>toast {Noun} {past participle}; Toggle confirms with toast.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Undo window</td><td>5-10s undo snackbar with literal &quot;Undo&quot;, only when rollback safe.</td><td class="s tag">Geist Toast</td></tr>
+</table></div>
+<h3 id="s29">29. Patterns: navigation and flows</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">IA template</td><td>top-level sections (header) -&gt; resource list -&gt; resource detail with Tabs -&gt; settings.</td><td class="s tag">Geist/Vercel dashboard</td></tr>
+<tr><td class="k">Navigation per size class</td><td>compact = drawer + bottom actions; medium = collapsible sidebar; expanded = persistent sidebar or header nav.</td><td class="s tag">Geist breakpoints + Cursor</td></tr>
+<tr><td class="k">Deep linking</td><td>tabs, filters, selected range in URL; refresh restores state.</td><td class="s tag">Geist Tabs</td></tr>
+<tr><td class="k">Back and up</td><td class="tbd">back = history; up = parent resource via breadcrumb.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Modal vs push vs sheet</td><td>Modal = blocking decision; Sheet = persistent context beside page; push (new page) = routine create flows; Drawer = mobile short actions.</td><td class="s tag">Geist Modal/Sheet/Drawer</td></tr>
+<tr><td class="k">Sheets and modals rules</td><td>never confirm destructive in Sheet or Drawer.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Toast vs banner vs dialog</td><td>toast = transient ack; Note = inline persistent; Banner = page-wide needing resolution; Modal = confirmation.</td><td class="s tag">Geist Note</td></tr>
+<tr><td class="k">Search pattern</td><td>CommandMenu global (scope pages, recents); scoped Input search per list; empty results template.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Filter and sort</td><td>sortable header buttons; filters in URL; presets for time ranges.</td><td class="s tag">Geist Table/Calendar</td></tr>
+<tr><td class="k">Bulk selection</td><td>row checkboxes &quot;Select {row name}&quot;, header indeterminate &quot;3 of 5 selected&quot;, bulk actions bar.</td><td class="s tag">Geist Checkbox/Entity</td></tr>
+<tr><td class="k">Drag and drop</td><td class="tbd">handle icon + keyboard alternative (move up/down).</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Infinite scroll vs pagination</td><td>Show More with count (&quot;Show 12 More&quot;) for lists; numbered pager for tables; virtualize past a few hundred.</td><td class="s tag">Geist Show More/Scroller</td></tr>
+<tr><td class="k">Onboarding</td><td>blank slate CTAs; tours never auto-launch; &quot;Start Tour&quot; + &quot;Skip&quot;.</td><td class="s tag">Geist Empty State</td></tr>
+<tr><td class="k">Auth flows</td><td class="tbd">N/A in fundamentals beyond copy (&quot;Use a Recovery Code Instead&quot;, &quot;Couldn&#x27;t verify your passkey. Try again.&quot;).</td><td class="s tag">Geist Button/Error</td></tr>
+<tr><td class="k">Permission priming</td><td class="tbd">explain value before OS prompt.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Settings structure</td><td>grouped sections, Toggle per boolean, Theme Switcher once in settings/footer.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Destructive actions</td><td>confirm Modal, typed match for high stakes, undo toast where safe.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Notifications and inbox</td><td class="tbd">TBD, need peer.</td><td class="s tag"></td></tr>
+<tr><td class="k">Checkout / payment</td><td class="tbd">N/A in fundamentals (skin/product). Plan tiles via Choicebox.</td><td class="s tag">Geist Choicebox</td></tr>
+<tr><td class="k">Sharing</td><td>copy link via Snippet/Copy button + toast &quot;Link copied&quot;.</td><td class="s tag">Geist Snippet</td></tr>
+<tr><td class="k">Help and feedback</td><td>Feedback at end of page/flow, collapsed until clicked.</td><td class="s tag">Geist Feedback</td></tr>
+<tr><td class="k">Offline and sync conflict</td><td class="tbd">TBD, need peer.</td><td class="s tag"></td></tr>
+</table></div>
+<h3 id="s30">30. Theming and skinning contract</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Skinnable tokens</td><td class="tbd">accent ramp (10 steps), font family slots, radius scale multiplier (doc vs product), illustration, logo, voice.</td><td class="s tag">Geist structure; values N/A, skin</td></tr>
+<tr><td class="k">Locked tokens</td><td>gray ramp step jobs, status hue mapping, focus ring geometry, z-index, motion durations, space scale, type sizes/line heights.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Required skin inputs</td><td>accent ramp light + dark (100-1000), sans + mono families with fallbacks, logo light/dark, voice notes.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Contrast revalidation</td><td>every skin re-runs the pairing table in light, dark, HC before ship.</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Mode support</td><td>light + dark required; HC strongly recommended.</td><td class="s tag">Geist light/dark/invert</td></tr>
+<tr><td class="k">Multi-brand rules</td><td class="tbd">one skin per product surface; skins never fork component code.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Runtime switching</td><td>class on html (<code>.light-theme</code>/<code>.dark-theme</code>) + <code>next-themes</code> with System default.</td><td class="s tag">Geist Theme Switcher; Cursor uses data-theme attribute</td></tr>
+<tr><td class="k">Per-component hooks</td><td><code>--themed-bg</code>, <code>--themed-fg</code>, <code>--themed-border</code> custom props.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Product skin layer</td><td class="tbd">separate doc (OvenLovin skin, later). N/A, skin.</td><td class="s tag"></td></tr>
+<tr><td class="k">Required skin inputs, imagery</td><td>imagery character per 12.13; every 12.13 input, including the 12.7 persona table and setting matrix, has a value or a written N/A with reason before imagery work.</td><td class="s tag">This doc; Ty lock 3</td></tr>
+</table></div>
+<h3 id="s31">31. Versioning and release</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Semver</td><td class="tbd">major = removed/renamed token or prop, changed step job; minor = new token/component/variant; patch = value tune within contract.</td><td class="s tag">TBD, need peer; Std semver</td></tr>
+<tr><td class="k">Token vs component version</td><td>single package version (Geist ships one <code>@vercel/geistcn</code>).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Changelog</td><td class="tbd">Keep a Changelog sections (Added, Changed, Deprecated, Removed, Fixed).</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Release cadence</td><td class="tbd">TBD, need peer.</td><td class="s tag"></td></tr>
+<tr><td class="k">Deprecation</td><td class="tbd">mark deprecated for one minor, remove next major with codemod.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Status lifecycle</td><td>Alpha -&gt; Beta -&gt; Stable -&gt; Deprecated, with lifecycle Tooltip naming limits.</td><td class="s tag">Geist Badge/Tooltip</td></tr>
+<tr><td class="k">Support window</td><td class="tbd">TBD, need peer.</td><td class="s tag"></td></tr>
+<tr><td class="k">Changelog entry, imagery minor (Nov 5, 2026)</td><td>Added: §12 expanded in place as 12.0 to 12.13 (intent, composition grain, light, optics, product truth, human presence, persona settings, image brief, generation versus code placement, QA and failure gallery, delivery, slot boundaries, brand character slot); imagery tags; one line pointers in §4, §8, §14b, §24, §26, §30, §34, §36, §37, §38; tokens <code>imagery.*</code>, <code>opacity.image-scrim-floor</code>, <code>opacity.image-scrim-step</code>. Changed: fallback is icon plus a short text label, never an icon alone (12.11); image scrim alpha may be solved per image with floor 0.20, gray-alpha-900 default and ceiling (§8, 12.9). Removed: none.</td><td class="s tag">This doc; Ty pt17u</td></tr>
+</table></div>
+<h3 id="s32">32. Governance and contribution</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Ownership (RACI)</td><td class="tbd">Ty = approver (A); design-system bot = responsible (R); product bots consulted (C); team informed (I).</td><td class="s tag">TBD, need Ty input</td></tr>
+<tr><td class="k">Request process</td><td class="tbd">open request with use case + why existing component fails.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Proposal template</td><td>problem, peers checked (Geist/Cursor/Grok Bot), proposed contract (purpose, variants, states, tokens), a11y, content.</td><td class="s tag">Geist Best Practices shape</td></tr>
+<tr><td class="k">Review criteria</td><td>full state matrix, light + dark, keyboard + SR, content rules, no raw values.</td><td class="s tag">Geist + outline 34</td></tr>
+<tr><td class="k">Do / don&#x27;t format</td><td>paired Do / Avoid example with one-line reason.</td><td class="s tag">Geist colors page</td></tr>
+<tr><td class="k">Exceptions</td><td class="tbd">one-offs documented inline with reason and expiry; detached components flagged in audit.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Feedback channel</td><td class="tbd">Feedback component on docs page + team Slack thread.</td><td class="s tag">Geist Feedback; channel TBD, need Ty input</td></tr>
+</table></div>
+<h3 id="s33">33. Migration and delta</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Delta report</td><td class="tbd">table old token -&gt; new token, value old/new, affected components.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Rename map</td><td class="tbd">JSON map in repo, consumed by codemod.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Codemod</td><td>regex replace <code>var(--old)</code> -&gt; <code>var(--new)</code>; Geist ships Tailwind class names so codemod targets classes too.</td><td class="s tag">Geist classes</td></tr>
+<tr><td class="k">Migration guide</td><td class="tbd">per major: what changed, why, steps, before/after.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Audit method</td><td class="tbd">screenshot each product screen, tag raw hex/px, count off-scale values.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Coexistence</td><td>old and new token sets namespaced (<code>--ds-</code> vs legacy <code>--geist-</code>), as Geist itself does.</td><td class="s tag">Geist live CSS</td></tr>
+</table></div>
+<h3 id="s34">34. Anti-slop bans</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">No invented aesthetics in fundamentals</td><td class="tbd">values come from a peer or are marked TBD/N/A.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">No raw hex, px, ms in components</td><td>tokens only.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k"></td><td>No em dashes in UI copy.</td><td class="s tag">Grok Bot house rule</td></tr>
+<tr><td class="k"></td><td>No gradients, glow, glassmorphism without token + reason; shadows translucent.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k"></td><td>No decorative emoji in UI chrome; emoji only in Feedback rating row.</td><td class="s tag">Geist Project Banner/Feedback</td></tr>
+<tr><td class="k">No lorem ipsum</td><td>use real example values (&quot;my-awesome-project&quot;).</td><td class="s tag">Geist Input</td></tr>
+<tr><td class="k"></td><td>No color-only signaling.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k"></td><td>No unlabeled icon-only buttons (validator throws).</td><td class="s tag">Geist</td></tr>
+<tr><td class="k"></td><td>No off-scale spacing or radius.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">No AI filler</td><td>Unlock, Elevate, Seamless, Get Started, successfully.</td><td class="s tag">Geist + outline</td></tr>
+<tr><td class="k"></td><td>No components without full state matrix.</td><td class="s tag">Outline 19</td></tr>
+<tr><td class="k"></td><td class="tbd">No specs without dark (required) and HC (TBD) coverage.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Ban list review</td><td class="tbd">reviewed each minor release; additions need one real example.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">No imagery slop</td><td>no generated identity art (product, packaging, labels, logos, screenshots, printed text), no mirrored text or logos, no guessed scrim, no category clichés, no synthetic testimonial faces (12.10).</td><td class="s tag">This doc</td></tr>
+</table></div>
+<h3 id="s35">35. Peer extraction method</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Extract structure and behavior, never look</td><td>copy contracts (steps, states, rules), not brand hues.</td><td class="s tag">Brief</td></tr>
+<tr><td class="k">Mobbin protocol</td><td>search flows, screens, sections for the pattern; save to collection; prior Linear extracts in ../peers/.</td><td class="s tag">Mobbin</td></tr>
+<tr><td class="k">Sample size</td><td class="tbd">at least 3 peers per pattern (here Geist, Cursor, Grok Bot), 5 for contested patterns.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Worksheet</td><td>pattern | peer | steps | states | edge cases | citation.</td><td class="s tag">Outline</td></tr>
+<tr><td class="k">Convergence</td><td>when 2 of 3 peers agree, adopt; else Geist wins with one-line dissent.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Citation log</td><td>every value carries a (Peer) tag; raw evidence in ../refs/.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Reference systems</td><td>Geist (primary), Cursor, Grok Bot; secondary Material 3, Apple HIG, Polaris, Radix, Spectrum, Base, Linear.</td><td class="s tag">Brief</td></tr>
+</table></div>
+<h3 id="s36">36. Tooling and delivery</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Design files</td><td>one library, variables collections Primitives/Semantic/Component, modes Light/Dark.</td><td class="s tag">Geist Core Figma referenced in typography.md</td></tr>
+<tr><td class="k">Code package</td><td>single components package + assets package (<code>@vercel/geistcn</code>, <code>@vercel/geistcn-assets</code>) model.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Token sync</td><td class="tbd">tokens.json -&gt; Style Dictionary -&gt; CSS vars + Tailwind theme.</td><td class="s tag">TBD, need peer for tool</td></tr>
+<tr><td class="k">Docs site</td><td>DropFast page per system version (title -&gt; key rule -&gt; tables), Grok Bot house CSS; markdown twin for agents (Geist <code>.md</code>).</td><td class="s tag">Grok Bot + Geist</td></tr>
+<tr><td class="k">Playground</td><td>component pages with live examples per variant/size, like Geist docs.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Linting</td><td class="tbd">stylelint disallow raw color/px/z-index outside tokens; eslint rule for aria-label on svgOnly.</td><td class="s tag">Geist validator; tools TBD</td></tr>
+<tr><td class="k">Asset export</td><td>SVG icons 16x16 currentColor; logos SVG + PNG light/dark.</td><td class="s tag">Geist</td></tr>
+<tr><td class="k">Raster image export</td><td>raster images per 12.11 with embedded ICC profile (sRGB or Display P3) and provenance metadata.</td><td class="s tag">Std</td></tr>
+</table></div>
+<h3 id="s37">37. Quality and verification</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Visual regression</td><td class="tbd">screenshot every story in light + dark per PR.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Automated a11y</td><td>axe-core in CI on stories; Geist dev warnings for missing names.</td><td class="s tag">Geist Toggle warning + Std</td></tr>
+<tr><td class="k">Manual a11y script</td><td>keyboard-only pass, VoiceOver pass, 200% zoom pass, reduced motion pass.</td><td class="s tag">Std</td></tr>
+<tr><td class="k">Browser/device matrix</td><td class="tbd">Chrome, Safari, Firefox, Edge latest 2; iOS Safari, Android Chrome.</td><td class="s tag">TBD, need peer</td></tr>
+<tr><td class="k">Performance budgets</td><td class="tbd">TBD, need peer.</td><td class="s tag"></td></tr>
+<tr><td class="k">Token coverage report</td><td>% of component CSS values that are tokens; target 100% except 1px hairlines.</td><td class="s tag">This doc</td></tr>
+<tr><td class="k">Spec parity</td><td>each component page lists contract; review compares implementation against variants/states table.</td><td class="s tag">Geist docs</td></tr>
+<tr><td class="k">Imagery checks</td><td>binary checks per 12.10 on every library asset; hands first, then the 96 px gate, then the rest.</td><td class="s tag">This doc</td></tr>
+</table></div>
+<h3 id="s38">38. Completeness gates</h3><div class="wide"><table><tr><th>Leaf</th><th>Value</th><th>Source</th></tr>
+<tr><td class="k">Every section has content or N/A with reason</td><td>PASS</td><td class="s tag">38 of 38 filled in this doc</td></tr>
+<tr><td class="k">Zero brand values</td><td>PASS for fundamentals</td><td class="s tag">no OvenLovin orange/cream/Fascinate; Cursor orange excluded</td></tr>
+<tr><td class="k">Every semantic token maps to a primitive in every mode</td><td class="tbd">PASS for light/dark (tokens.json); HC = TBD.</td><td class="s tag"></td></tr>
+<tr><td class="k">Full state matrix per component</td><td>PARTIAL</td><td class="s tag">contracts listed; stories not built</td></tr>
+<tr><td class="k">Contrast passes in light, dark, HC</td><td>PARTIAL</td><td class="s tag">Geist designed light/dark; HC untested</td></tr>
+<tr><td class="k">Keyboard and SR spec per component</td><td class="tbd">PARTIAL</td><td class="s tag">Geist covers 40+; gaps marked TBD</td></tr>
+<tr><td class="k">Patterns have empty, error, loading, success</td><td>PASS</td><td class="s tag">section 28</td></tr>
+<tr><td class="k">Skin contract tested with two dummy skins</td><td>OPEN</td><td class="s tag">needs skin pass</td></tr>
+<tr><td class="k">No anti-slop violations</td><td>PASS</td><td class="s tag">self-audit: no em dashes, no filler words in values</td></tr>
+<tr><td class="k">Versioning/changelog/deprecation published</td><td class="tbd">OPEN</td><td class="s tag">TBD values in 31</td></tr>
+<tr><td class="k">Peer evidence logged</td><td>PASS</td><td class="s tag">../refs/</td></tr>
+<tr><td class="k">Ty sign-off per section</td><td>OPEN</td><td class="s tag">needs Ty</td></tr>
+<tr><td class="k">Imagery checks defined and brand slots filled</td><td>checks defined PASS (12.10); brand slots OPEN until a product A fills 12.13 and runs 12.10 on a real set.</td><td class="s tag">This doc</td></tr>
+</table></div>
+<hr><p class="small">Source: template/FILLED.md, template/tokens.json, refs/geist, refs/cursor, refs/grok-bot. Imagery brand slots stay OPEN until a product A fill. Gaps needing Ty: RACI, feedback channel, HC theme, versioning cadence, skin pass, per-section sign-off.</p>
+</main><script src="/embed/comments-spike.js" data-dropfast-slug="sw5mnpgq" defer></script><script src="/embed/beacon.js" data-dropfast-slug="sw5mnpgq" defer></script></body></html>
